@@ -10,7 +10,6 @@ seeder.connect('mongodb://localhost/schools_db', { useUnifiedTopology: true }, f
     './server/models/schools.js',
     './server/models/reviews.js',
   ])
-
   // Clear specified collections
   seeder.clearModels(['School', 'Review'], function () {
     // Callback to populate DB once collections have been cleared
