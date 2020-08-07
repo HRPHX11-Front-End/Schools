@@ -28,6 +28,7 @@
     "babel-preset-env": "^1.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "faker": "^4.1.0",
     "jest": "^26.2.2",
     "webpack": "^4.44.1",
     "webpack-dev-server": "^3.11.0"
@@ -38,6 +39,7 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.0",
     "mongoose": "^5.9.27",
+    "mongoose-seed": "^0.6.0",
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
