@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const School = require('../models/schools.js');
-// const school_controller = require('../controllers/schoolController.js')
 
 router.get('/',  (req, res, next) => {
-  School.findOne()
+  School.find().limit(5)
   .then((results) => {
-    res.json(results)
+    res.json(results);
   })
 });
 

@@ -1,28 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Chart from './chart.jsx'
 import axios from 'axios';
 
 class App extends React.Component {
   constructor() {
     super()
-    this.persistData = this.persistData.bind(this);
+    this.state = {
+      schoolDataLoaded: false,
+      schoolData: []
+    }
   }
 
   // api request to get nearby schools
-  persistData() {
-   axios.get('/schools')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
+  componentDidMount() {
+    axios.get('/schools')
+      .then(response => {
+        // handle success
+        this.setState({
+          schoolDataLoaded: true,
+          schoolData: response.data,
+        })
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   render() {
-    return (
-      <div>
-        <button onClick={() => {this.persistData()}}>Taco Tuesday</button>
-      </div>
-    )
+    if (this.state.schoolDataLoaded) {
+      return (
+        <div>
+          <h1>Test</h1>
+          <Chart schools={this.state.schoolData} />
+        </div>
+      )
+    } else {
+      return null;
+    }
   }
 }
 
