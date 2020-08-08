@@ -35,7 +35,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
+    "css-loader": "^4.2.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.0",
@@ -44,6 +46,7 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.12"
   }
 }

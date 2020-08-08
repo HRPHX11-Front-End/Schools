@@ -5,7 +5,6 @@ const review = require('./schools.js')
 const Schema = mongoose.Schema;
 
 const schoolSchema = new Schema({
-
   rating: [{
     academicProgress: Number,
     lowIncome: Number,
