@@ -32,7 +32,7 @@ module.exports.dataGenerator = () => {
       district: faker.address.streetName() + ' School District',
       studentBody: faker.random.number({ min: 500, max: 2500 }),
       teacherBody: faker.random.number({ min: 100, max: 500 }),
-      teachStudRatio: faker.random.number({ min: 1, max: 10 }) + ':' + faker.random.number({ min: 1, max: 10 }),
+      teachStudRatio: getRatio(faker.random.number({ min: 0, max: 50 }), faker.random.number({ min: 100, max: 150 })),
       distance: faker.random.number({ min: 0.1, max: 10 }),
       address: [{
         street: faker.random.number({ min: 1000, max: 9999 }) + ' ' + faker.address.streetName(),
@@ -72,11 +72,11 @@ module.exports.dataGenerator = () => {
 }
 
 // recursive fn to get ratio (helper fn)
-// const getRatio = (teacherBod, studentBod) => {
-//   for (let i = 2; i <= teacherBod; i++) {
-//     if ((teacherBod / i) % 1 === 0 && (studentBod / i) % 1 === 0) {
-//       return getRatio(teacherBod / i, studentBod / i);
-//     }
-//   }
-//   return `${teacherBod}:${studentBod}`;
-// }
+const getRatio = (num1, num2) => {
+  for (let i = 2; i <= num1; i++) {
+    if ((num1 / i) % 1 === 0 && (num2 / i) % 1 === 0) {
+      return getRatio(num1 / i, num2 / i);
+    }
+  }
+  return `${num1}:${num2}`;
+}
