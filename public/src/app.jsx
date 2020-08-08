@@ -31,7 +31,7 @@ class App extends React.Component {
     if (this.state.schoolDataLoaded) {
       return (
         <div>
-          <h1>Test</h1>
+          <h1>Testing</h1>
           <Chart schools={this.state.schoolData} />
         </div>
       )

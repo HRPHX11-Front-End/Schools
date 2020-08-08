@@ -2,14 +2,11 @@ import React from 'react';
 
 function Chart(props) {
   console.log(props.schools)
-  if (props.schools !== null) {
-    const listItems = props.schools.map((school) => {
+    const listItems = props.schools.map(school => (
       <li key={school._id}>
-        {school}
+        {school.name}
       </li>
-    })
-  }
-
+    ))
   return (
   <ul>{listItems}</ul>
   )
