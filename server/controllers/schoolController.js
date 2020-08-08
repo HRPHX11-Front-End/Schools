@@ -4,4 +4,4 @@ var get = (req, res) => {
 
 }
 
-module.exports = (get)
+module.exports = {get}
