@@ -8,10 +8,10 @@ seeder.connect('mongodb://localhost/schools_db', { useUnifiedTopology: true }, f
   // Load Mongoose models
   seeder.loadModels([
     './server/models/schools.js',
-    './server/models/reviews.js',
+    // './server/models/reviews.js',
   ])
   // Clear specified collections
-  seeder.clearModels(['School', 'Review'], function () {
+  seeder.clearModels(['School'], function () {
     // Callback to populate DB once collections have been cleared
     var data = exampleData.dataGenerator();
     seeder.populateModels(data, function () {

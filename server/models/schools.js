@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
-const review = require('./schools.js')
 
 // define schema
 const Schema = mongoose.Schema;
+
+const reviewSchema = mongoose.Schema({
+  rating: Number,
+  comment: String,
+  submitter: String,
+  date: Date
+});
 
 const schoolSchema = new Schema({
   rating: [{
@@ -29,10 +35,10 @@ const schoolSchema = new Schema({
     grades: String,
     nearByOrServes: String
   }],
-  reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}]
+  reviews: [reviewSchema]
 });
 
-const School =  mongoose.model('School', schoolSchema);
+const School = mongoose.model('School', schoolSchema);
 
 module.exports = School;
 
