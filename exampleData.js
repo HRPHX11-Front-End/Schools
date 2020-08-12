@@ -13,14 +13,8 @@ module.exports.dataGenerator = () => {
   var gradesArr = ['Preschool to 6', 'Preschool to 8', 'K to 12', '6 to 12', '9 to 12'];
   var gIdx = Math.floor(Math.random() * 5);
 
-  // create random variable
-  var random = Math.floor(Math.random() * 10);
-
   // array to hold all school docs
   var schoolRecords = [];
-
-  // array to hold all reviews
-  // var reviewRecords = [];
 
   // 100 school data documents
   for (let i = 0; i < 100; i++) {
@@ -49,35 +43,36 @@ module.exports.dataGenerator = () => {
         grades: gradesArr[gIdx],
         nearByOrServes: distanceArr[nIdx]
       }],
-      reviews: [...Array(random)].map((item) => {
-        return {
-          rating: faker.random.number({ min: 0, max: 5 }),
-          comment: faker.lorem.paragraphs(),
-          submitter: 'Parent',
-          date: faker.date.past()
-        }
-      })
+      reviews: reviews(),
     }
     schoolRecords.push(schoolData);
   }
 
-  // 300 reviews
-  // for (let j = 0; j < 300; j++) {
-  //   var reviewData =
-  //   {
-  //     rating: faker.random.number({ min: 0, max: 10 }),
-  //     comment: faker.lorem.paragraphs(),
-  //     submitter: 'Parent',
-  //     date: faker.date.past()
-  //   }
-  //   reviewRecords.push(reviewData);
-  // }
-  // set data variable
+
+
+
   var data = [{
     'model': 'School',
     'documents': schoolRecords
   }]
   return data;
+}
+
+// fn to obtain reviews
+const reviews = () => {
+  // create random variable
+  var random = Math.floor(Math.random() * 11);
+  // array to hold all reviews
+  var reviewRecords = [];
+  [...Array(random)].map((item) => {
+    reviewRecords.push({
+      rating: faker.random.number({ min: 0, max: 5 }),
+      comment: faker.lorem.paragraphs(),
+      submitter: 'Parent',
+      date: faker.date.past()
+    })
+  })
+  return reviewRecords;
 }
 
 // recursive fn to get ratio (helper fn)

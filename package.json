@@ -16,6 +16,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserslist": "> 1%, last 2 versions",
   "bugs": {
     "url": "https://github.com/HRPHX11-Front-End/Schools/issues"
   },
@@ -24,20 +25,23 @@
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "autoprefixer": "^9.8.6",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
+    "css-loader": "^4.2.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "faker": "^4.1.0",
     "jest": "^26.2.2",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "cors": "^2.8.5",
-    "css-loader": "^4.2.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.0",
@@ -47,7 +51,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
-    "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.12"
   }
 }

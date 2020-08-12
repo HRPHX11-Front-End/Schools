@@ -1,6 +1,7 @@
 const path = require('path');
 var SRC_DIR = path.join(__dirname, '/public/src');
 var DIST_DIR = path.join(__dirname, '/public/assets/dist');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   // set webpack mode
@@ -33,16 +34,27 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader',
-    }
-    ],
+      exclude: /node_modules/,
+      use: [
+        { loader: 'style-loader' },
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            modules: {
+              localIdentName: '[name]__[local]__[hash:base64:5]'
+            }
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: () => [autoprefixer()]
+          }
+        }
+      ]
+    }],
   }
 }
 
-// test: cssRegex,
-//   exclude: cssModuleRegex,
-//     use: getStyleLoaders({
-//       importLoaders: 1,
-//       modules: true,
-//       localIdentName: '[name]__[local]__[hash:base64:5]'
-//     })

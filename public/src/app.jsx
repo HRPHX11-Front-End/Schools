@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from './components/chart.jsx'
-import Modal from './modal/modal.jsx'
+import Chart from './components/chart.jsx';
+import Modal from './modal/modal.jsx';
+import css from './styles.css'
 
 import axios from 'axios';
 
@@ -35,11 +36,21 @@ openModal() {
 }
 
   render() {
+    const FlexBox = {
+      display:'flex',
+      justifyContent: 'space-between',
+      width: '500px',
+      postion: 'relative'
+    }
+
+    // className={css.container}
     if (this.state.schoolDataLoaded) {
       return (
-        <div>
-          <Modal />
+        <div style={FlexBox}>
+          <div>
+          <h2 className={css.rowTitle}>Schools</h2>
           <Chart schools={this.state.schoolData} />
+          </div>
         </div>
       )
     } else {
@@ -49,3 +60,5 @@ openModal() {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+/* <Modal /> */
