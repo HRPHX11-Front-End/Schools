@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles.css';
 
 const RatingIcon = (props) => {
 
@@ -13,7 +14,6 @@ const RatingIcon = (props) => {
 
   const style = {
     backgroundColor: '#f5f5f5',
-    font: 'Libre Franklin',
     width: '56px',
     height: '56px',
     textAlign: 'center',
@@ -22,7 +22,7 @@ const RatingIcon = (props) => {
   }
 
   return (
-    <div style={style}>
+    <div className={styles.ratingIcon} style={style}>
       <span style={ratingNum}>{props.rating}</span>
       <span style={outOfTen}>/10</span>
     </div>

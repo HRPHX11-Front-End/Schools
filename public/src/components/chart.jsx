@@ -1,19 +1,19 @@
 import React from 'react';
 import Row from './chart_row.jsx';
+import styles from '../styles.css';
 
 function Chart(props) {
-  console.log(props)
   const listItems = props.schools.map(school => (
     <li key={school._id}>
-      <Row reviews={[...school.reviews]} name={school.name} rating={[...school.rating]} details={school.details} distance={school.distance} />
+      <Row reviews={[...school.reviews]} name={school.name} rating={[...school.rating]} studentBody={school.studentBody} details={school.details} distance={school.distance} />
     </li>
   ))
 
 
   return (
-    <div>
-      <h2>Schools</h2>
-      {listItems}
+    <div className={styles.container}>
+      <h2 className={styles.rowTitle}>Schools</h2>
+      <ul>{listItems}</ul>
     </div>
   )
 }

@@ -1,0 +1,26 @@
+li {
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+.rowTitle {
+  display: flex;
+  font: inherit;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  word-spacing: .125rem;
+  padding-left: 2.5rem;
+}
+
+.container {
+  font: 'Libre Franklin';
+}
+
+.rowBody {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+

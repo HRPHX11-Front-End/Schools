@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from './components/chart.jsx'
-import Modal from './modal/modal.jsx'
+import Chart from './components/chart.jsx';
+import Modal from './modal/modal.jsx';
+import css from './styles.css'
 
 import axios from 'axios';
 
@@ -37,8 +38,7 @@ openModal() {
   render() {
     if (this.state.schoolDataLoaded) {
       return (
-        <div>
-          <Modal />
+        <div className={css.container}>
           <Chart schools={this.state.schoolData} />
         </div>
       )
@@ -49,3 +49,5 @@ openModal() {
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+/* <Modal /> */
