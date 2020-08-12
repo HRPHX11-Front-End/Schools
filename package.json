@@ -46,6 +46,7 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
     "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.12"
   }

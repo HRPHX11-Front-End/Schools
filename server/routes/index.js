@@ -4,8 +4,12 @@ const School = require('../models/schools.js');
 
 router.get('/',  (req, res, next) => {
   School.find().limit(5)
-  .then((results) => {
-    res.json(results);
+  .exec((err, results) => {
+    if(err) {
+      console.log(err)
+    } else {
+      res.json(results)
+    }
   })
 });
 

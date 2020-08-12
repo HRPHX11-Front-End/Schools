@@ -33,7 +33,16 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
-  }],
+      loader: 'style-loader!css-loader',
+    }
+    ],
+  }
 }
-}
+
+// test: cssRegex,
+//   exclude: cssModuleRegex,
+//     use: getStyleLoaders({
+//       importLoaders: 1,
+//       modules: true,
+//       localIdentName: '[name]__[local]__[hash:base64:5]'
+//     })

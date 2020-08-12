@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chart from './chart.jsx'
+import Chart from './components/chart.jsx'
+import Modal from './modal/modal.jsx'
+
 import axios from 'axios';
 
 class App extends React.Component {
@@ -10,6 +12,7 @@ class App extends React.Component {
       schoolDataLoaded: false,
       schoolData: []
     }
+    this.openModal = this.openModal.bind(this);
   }
 
   // api request to get nearby schools
@@ -27,16 +30,20 @@ class App extends React.Component {
       })
   }
 
+openModal() {
+
+}
+
   render() {
     if (this.state.schoolDataLoaded) {
       return (
         <div>
-          <h1>Testing</h1>
+          <Modal />
           <Chart schools={this.state.schoolData} />
         </div>
       )
     } else {
-      return null;
+      return <div>loading...</div>;
     }
   }
 }
