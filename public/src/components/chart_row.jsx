@@ -19,15 +19,24 @@ const Row = (props) => {
   }
 
   return (
-
-    <div className={styles.rowBody}>
+    <div className={styles.container}>
+      <div className={styles.itemOne} >
+        <div class={styles.ratingIcon}>
       <RatingIcon rating={props.rating[0].average} />
+      </div>
       <span style={title}>{props.name}
-      <UnderBar details={props.details[0]} />
+      <UnderBar  details={props.details[0]} />
       </span>
-      <StudentBody studentBody={props.studentBody}/>
-      <StarBar reviews={props.reviews}/>
-      <DistanceMeter distance={props.distance} />
+      </div>
+      <div className={styles.itemTwo}>
+      <StudentBody className={styles.studentBody} studentBody={props.studentBody}/>
+      </div>
+      <div className={styles.itemTwo}>
+      <StarBar className={styles.starBar} reviews={props.reviews}/>
+      </div>
+      <div className={styles.itemTwo}>
+      <DistanceMeter className={styles.DistanceMeter}  distance={props.distance} />
+      </div>
     </div>
   )
 }

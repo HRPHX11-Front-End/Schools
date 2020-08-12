@@ -36,10 +36,21 @@ openModal() {
 }
 
   render() {
+    const FlexBox = {
+      display:'flex',
+      justifyContent: 'space-between',
+      width: '500px',
+      postion: 'relative'
+    }
+
+    // className={css.container}
     if (this.state.schoolDataLoaded) {
       return (
-        <div className={css.container}>
+        <div style={FlexBox}>
+          <div>
+          <h2 className={css.rowTitle}>Schools</h2>
           <Chart schools={this.state.schoolData} />
+          </div>
         </div>
       )
     } else {
