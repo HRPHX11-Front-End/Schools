@@ -3,7 +3,6 @@ import { FaStar } from 'react-icons/fa';
 import styles from '../styles.css'
 
 const StarBar = (props) => {
-  console.log('star', props)
   const [state, setStarValue] = useState(props.reviews)
   const [review, setReviewValue] = useState('')
 

@@ -1,4 +1,5 @@
 const faker = require('faker');
+const txtgen = require('txtgen');
 
 // function to generate 300 fake reviews and 100 fake houses with random data points
 module.exports.dataGenerator = () => {
@@ -48,9 +49,6 @@ module.exports.dataGenerator = () => {
     schoolRecords.push(schoolData);
   }
 
-
-
-
   var data = [{
     'model': 'School',
     'documents': schoolRecords
@@ -60,6 +58,9 @@ module.exports.dataGenerator = () => {
 
 // fn to obtain reviews
 const reviews = () => {
+  // format random dat
+
+  var date =  faker.date.past(20, new Date(2020, 0, 1))
   // create random variable
   var random = Math.floor(Math.random() * 11);
   // array to hold all reviews
@@ -67,9 +68,9 @@ const reviews = () => {
   [...Array(random)].map((item) => {
     reviewRecords.push({
       rating: faker.random.number({ min: 0, max: 5 }),
-      comment: faker.lorem.paragraphs(),
+      comment: txtgen.paragraph(),
       submitter: 'Parent',
-      date: faker.date.past()
+      date: date
     })
   })
   return reviewRecords;
@@ -84,4 +85,5 @@ const getRatio = (num1, num2) => {
   }
   return `${num1}:${num2}`;
 }
+
 

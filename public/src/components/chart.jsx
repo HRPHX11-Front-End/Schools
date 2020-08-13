@@ -5,7 +5,7 @@ import styles from '../styles.css';
 function Chart(props) {
   const listItems = props.schools.map(school => (
     <li key={school._id}>
-      <Row  rating={[...school.rating]} name={school.name} details={school.details} studentBody={school.studentBody} reviews={[...school.reviews]} distance={school.distance} />
+      <Row  name={school.name} rating={[...school.rating]}  details={school.details} studentBody={school.studentBody} reviews={[...school.reviews]} distance={school.distance} />
     </li>
   ))
 
