@@ -1,6 +1,11 @@
 
 body {
-  font-family: 'Libre Franklin','-apple-system','BlinkMacSystemFont','Roboto','Droid Sans',Helvetica,Arial,sans-serif;
+  font-family: 'Libre Franklin' !important;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.375;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h2 {
@@ -22,8 +27,6 @@ li {
 }
 
 .rowTitle {
-
-  font: inherit;
   font-size: 1.5em;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
@@ -33,7 +36,6 @@ li {
 
 .container {
   display: flex;
-  font-family: 'Libre Franklin';
   align-items: flex-start;
   justify-content: stretch;
   border-top: none;
@@ -41,6 +43,8 @@ li {
   flex-direction: row;
   align-content: center;
   margin: 15px 15px;
+  height: 100%;
+  overflow: auto;
 }
 
 .itemOne {
@@ -49,7 +53,6 @@ li {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family: 'Libre Franklin';
   vertical-align: baseline;
   justify-content: stretch;
   max-width: 350px;
@@ -79,7 +82,6 @@ li {
   font: inherit;
   vertical-align: baseline;
   text-align: left;
-  font-family: 'Libre Franklin';
 
 }
 
@@ -88,7 +90,6 @@ li {
   flex-direction: column;
   padding: 10px 10px 10px 10px;
   align-content: center;
-  font-family: 'Libre Franklin';
 }
 
 .ratingIcon {
@@ -101,7 +102,6 @@ li {
   padding-top: 4px;
   line-height: 18px;
   font-size: .875rem;
-  font-family: 'Libre Franklin';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -115,7 +115,7 @@ li {
   -webkit-font-smoothing: antialiased;
 }
 
-.reviewText {
+.reviewTextMain {
   padding-top: 4px;
   line-height: 18px;
   color: #1080a2;

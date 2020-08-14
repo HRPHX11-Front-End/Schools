@@ -3,31 +3,43 @@ import { FaStar } from 'react-icons/fa';
 import styles from '../styles.css'
 
 const StarBar = (props) => {
-  const [state, setStarValue] = useState(props.reviews)
-  const [review, setReviewValue] = useState('')
+
+  const [state, setStarValue] = useState(props.reviews);
+  const [review, setReviewValue] = useState('');
+  const [renderComment, setRenderComment] = useState(false);
 
 
   useEffect(() => {
-    var sum = state.map((review) => (
-      review.rating
-    ))
-    .reduce((memo, currentValue) => {
-      return (memo + currentValue)
-    }, 0)
-    setReviewValue(state.length);
-    setStarValue(Math.ceil(sum / state.length));
+    if (Array.isArray(state)) {
+      var sum = state.map((review) => (
+        review.rating
+      ))
+        .reduce((memo, currentValue) => {
+          return (memo + currentValue)
+        }, 0)
+      setReviewValue(state.length);
+      setRenderComment(true);
+      setStarValue(Math.ceil(sum / state.length));
+    }
   }, [])
 
+
+
   return (
-    <div value={state}>
+    (renderComment ? <div value={state}>
       {[...Array(5)].map((star, i) => (
-        <FaStar key={i} size={20} color={i + 1 <= state ? '#fad700' : '#c2c2c2'}/>
+        <FaStar key={i} size={20} color={i + 1 <= state ? '#fad700' : '#c2c2c2'} />
       ))}
       <div className={styles.reviewText}>
-      {review}
-      {review === 1 ? ' review' : ' reviews'}
+        {review}
+        {review === 1 ? ' review' : ' reviews'}
       </div>
-    </div>
+    </div> : <div value={state}>
+      {[...Array(5)].map((star, i) => (
+        <FaStar key={i} size={20} color={i + 1 <= state ? '#fad700' : '#c2c2c2'} />
+      ))}
+      </div>
+    )
   )
 }
 

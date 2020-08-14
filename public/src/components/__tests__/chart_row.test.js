@@ -12,25 +12,25 @@ import StarBar from '../five_star.jsx';
 configure({ adapter: new Adapter() });
 
 describe('<ChartRow />', () => {
-  // it('should render 1 instance of RatingIcon component', () => {
-  //   const wrapper = shallow(<ChartRow />)
-  //   expect(wrapper.find(RatingIcon)).toHaveLength(1);
-  // })
-  // it('should render 1 instance of UnderBar component', () => {
-  //   const wrapper = shallow(<ChartRow />)
-  //   expect(wrapper.find(UnderBar)).toHaveLength(1);
-  // })
-  // it('should render 1 instance of StudentBody component', () => {
-  //   const wrapper = shallow(<ChartRow />)
-  //   expect(wrapper.find(StudentBody)).toHaveLength(1);
-  // })
-  // it('should render 1 instance of StarBar component', () => {
-  //   const wrapper = shallow(<ChartRow />)
-  //   expect(wrapper.find(StarBar)).toHaveLength(1);
-  // })
-  // it('should render 1 instance of DistanceMeter component', () => {
-  //   const wrapper = shallow(<ChartRow />)
-  //   expect(wrapper.find(DistanceMeter)).toHaveLength(1);
-  // })
+  it('should render 1 instance of RatingIcon component', () => {
+    const wrapper = shallow(<ChartRow />)
+    expect(wrapper.find(RatingIcon)).toHaveLength(1);
+  })
+  it('should render 1 instance of UnderBar component', () => {
+    const wrapper = shallow(<ChartRow />)
+    expect(wrapper.find(UnderBar)).toHaveLength(1);
+  })
+  it('should render 1 instance of StudentBody component', () => {
+    const wrapper = shallow(<ChartRow />)
+    expect(wrapper.find(StudentBody)).toHaveLength(1);
+  })
+  it('should render 1 instance of StarBar component', () => {
+    const wrapper = shallow(<ChartRow />)
+    expect(wrapper.find(StarBar)).toHaveLength(1);
+  })
+  it('should render 1 instance of DistanceMeter component', () => {
+    const wrapper = shallow(<ChartRow />)
+    expect(wrapper.find(DistanceMeter)).toHaveLength(1);
+  })
 
 })

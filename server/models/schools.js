@@ -16,13 +16,14 @@ const schoolSchema = new Schema({
     lowIncome: Number,
     equity: Number,
     testScores: Number,
-    average: Number
+    average: Number,
+    lastUpdated: Date
   }],
   name: String,
   district: String,
   studentBody: Number,
   teacherBody: Number,
-  teachStudRatio: String,
+  studTeachRatio: Number,
   distance: Number,
   address: [{
     street: String,

@@ -1,7 +1,16 @@
 {
+    "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+],
     "env": {
         "browser": true,
-        "es2020": true
+        "es2020": true,
+        "node": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -20,3 +29,5 @@
     "rules": {
     }
 }
+
+
