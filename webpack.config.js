@@ -2,6 +2,7 @@ const path = require('path');
 var SRC_DIR = path.join(__dirname, '/public/src');
 var DIST_DIR = path.join(__dirname, '/public/assets/dist');
 const autoprefixer = require('autoprefixer');
+
 require("@babel/core").transform("code", {
   plugins: ["@babel/plugin-syntax-jsx"]
 });

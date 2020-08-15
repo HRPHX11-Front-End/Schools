@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import RatingIcon from './rating_icon.jsx';
 import UnderBar from './underbar.jsx';
 import DistanceMeter from './distance_meter.jsx';
@@ -10,29 +10,21 @@ import Modal from '../modal/modal.jsx';
 class Row extends React.Component {
   constructor(props) {
     super(props)
-    this.state= {
+    this.state = {
       showModal: false,
       schoolInfo: this.props
     }
   }
 
   render() {
-    const title = {
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      color: '#1080a2',
-      cursor: 'pointer',
-      fontSize: '1rem',
-      font: 'Libre Franklin',
-    }
-
+    // 2 sources of truth... passing in props into setPage allows the rendered child componenets to display information based on the props being passed down
     return (
-      <div className={styles.container} onClick={() => this.props.setPage(this.state.schoolInfo)}>
+      <div className={styles.flexContainer} onClick={() => this.props.setPage(this.state.schoolInfo)}>
         <div className={styles.itemOne} >
           <div className={styles.ratingIcon}>
             <RatingIcon rating={this.props.rating[0].average} />
           </div>
-          <span style={title}>{this.props.name}
+          <span className={styles.SchoolName}>{this.props.name}
             <UnderBar details={this.props.details[0]} />
           </span>
         </div>

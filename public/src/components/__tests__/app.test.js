@@ -3,45 +3,50 @@ import { configure, shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import App from '../app.jsx';
 import Chart from '../chart.jsx';
+import Header from '../header.jsx';
 import moxios from 'moxios';
 
 configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-  let wrapper;
 
-  // beforeAll(() => {
-  //   global.fetch = jest.fn();
-  // });
+  let wrapper;
+  let spyDidMount;
 
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
+    // spyDidMount = jest.spyOn(App.prototype, "componentDidMount");
     moxios.install()
     moxios.stubRequest('/schools', {
       status: 200,
-      response: [{
-        schoolName1: "Eloise Okuneva Elementary School",
-        schoolName2: "Rebecca Jakubowski Elementary School",
-        schoolName3: "Willow Eichmann High School",
-        schoolName4: "Madelyn Kuhn High School",
-        schoolName5: "Candice Orn Academy"
-      }]
+      response: {
+        name: "Phyllis Leannon Academy",
+        district: "Filiberto Camp School District"
+      }
     })
   });
 
   afterEach(() => {
-    wrapper.unmount();
     moxios.uninstall();
   });
-  it('should fetch a list of schools and display them', () {
-    const wrapper = mount(<App />)
+
+  it('should display "loading..." if server response has not yet been received', () => {
+    expect(wrapper.text()).toEqual('Loading...')
   })
 
-  it('should render 1 instance of chart component after a successful api call', () => {
-    const spyDidMount = jest.spyOn(App.prototype, "componentDidMount");
-    const wrapper = shallow(<App />)
+  it('should have a header component', () => {
+    wrapper.setState({ schoolDataLoaded: true })
+    expect(wrapper.find(Header)).toHaveLength(1);
+  })
+
+  it('should render 1 instance of chart component', () => {
     wrapper.setState({ schoolDataLoaded: true })
     expect(wrapper.find(Chart)).toHaveLength(1);
   })
 
 })
+
+
+
+
+

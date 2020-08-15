@@ -4,11 +4,12 @@
   "description": "school reviews, info, and stats",
   "main": "server/index.js",
   "jest": {
-    "moduleNameMapper": { "^.+\\.(css|less)$": "<rootDir>/styleMock.js" }
+    "moduleNameMapper": {
+      "^.+\\.(css|less)$": "<rootDir>/styleMock.js"
+    }
   },
-
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --coverage",
     "dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node seed.js"
@@ -42,6 +43,7 @@
     "faker": "^4.1.0",
     "jest": "^26.2.2",
     "jest-cli": "^26.4.0",
+    "moxios": "^0.4.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",

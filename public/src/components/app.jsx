@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './header.jsx';
 import Chart from './chart.jsx';
 import Modal from '../modal/modal.jsx';
 import css from '../styles.css';
@@ -20,7 +21,6 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/schools')
       .then(response => {
-        console.log(response)
         // handle success
         this.setState({
           schoolDataLoaded: true,
@@ -44,13 +44,13 @@ class App extends React.Component {
     } else if (this.state.page === 'main') {
       return (
         <div>
-          <h2 className={css.rowTitle}>Schools</h2>
+          <Header />
           <Chart setPage={this.setPage} schools={this.state.schoolData} />
         </div>
       )
     } else {
       return (<div>
-        <h2 className={css.rowTitle}>Schools</h2>
+        <Header className={css.Header}/>
         <Chart setPage={this.setPage} schools={this.state.schoolData} />
         <Modal setPage={this.setPage} school={this.state.page} />
       </div>)
@@ -58,15 +58,8 @@ class App extends React.Component {
   }
 
   render() {
-    const FlexBox = {
-      display: 'flex',
-      justifyContent: 'space-between',
-      width: '500px',
-      postion: 'relative'
-    }
-
     return (
-      <div style={FlexBox}>
+      <div>
         {this.renderPage()}
       </div>
     )

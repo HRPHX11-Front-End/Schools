@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Libre Franklin' !important;
@@ -7,6 +12,70 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.Header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin: 10px 0 0 35px;
+  padding: 10px 0 0 35px;
+}
+
+.hederTitle {
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  word-spacing: .125rem;
+  padding-left: 5.5rem;
+}
+
+.headerSubtitle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  color: #333;
+  border-bottom-style: dashed;
+  border-color: #999;
+  cursor: pointer;
+  max-width: 135px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  /* background-color: #ccc; */
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+
+.itemOne {
+  display: flex;
+  /* background-color: yellow; */
+  padding: 0 10px;
+  margin: 0 10px;
+  text-align: left;
+  min-width: 350px;
+  max-width: 700px;
+  align-content: center;
+  max-height: 56px;
+  min-width: 450px;
+}
+
+.itemTwo {
+  display: flex;
+  /* background-color: pink; */
+  padding: 0 10px;
+  margin: 0 10px;
+  text-align: left;
+  align-content: center;
+  max-height: 56px;
+  min-width: 100px;
+}
+
 
 h2 {
   padding-left: 0;
@@ -26,80 +95,14 @@ li {
   white-space: nowrap;
 }
 
-.rowTitle {
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  word-spacing: .125rem;
-  padding-left: 5.5rem;
-}
-
-.container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: stretch;
-  border-top: none;
-  border-bottom: none;
-  flex-direction: row;
-  align-content: center;
-  margin: 15px 15px;
-  height: 100%;
-  overflow: auto;
-}
-
-.itemOne {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  justify-content: stretch;
-  max-width: 350px;
-  vertical-align: top;
-  text-align: left;
-  width: 728px;
-  align-content: center;
-  justify-content: flex-start;
-  min-height: 64px;
-  padding: 10px 10px 10px 10px;
-
-}
-
-
-
-.itemTwo {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 10px 10px 10px;
-  align-content: center;
-  min-height: 64px;
-  justify-content: space-between;
-  justify-items: stretch;
-  flex-direction: row;
-  margin: 0 30px;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-align: left;
-
-}
-
-.itemThree {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 10px 10px 10px;
-  align-content: center;
-}
-
 .ratingIcon {
   margin: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
 }
 
 .lightGrey {
   color: #767676;
   display: block;
-  padding-top: 4px;
   line-height: 18px;
   font-size: .875rem;
   text-rendering: optimizeLegibility;
@@ -115,13 +118,25 @@ li {
   -webkit-font-smoothing: antialiased;
 }
 
-.reviewTextMain {
+.SchoolName {
   padding-top: 4px;
   line-height: 18px;
   color: #1080a2;
   cursor: pointer;
-  font-size: .75rem;
   vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-weight:400;
+  text-overflow: 'ellipsis';
+  overflow: 'hidden';
+  font-size:16px;
+}
+
+.reviewText {
+  line-height: 18px;
+  font-size: .875rem;
+  color: #1080a2;
+  cursor: pointer;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }

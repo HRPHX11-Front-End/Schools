@@ -23,14 +23,18 @@ module.exports.dataGenerator = () => {
     var nIdx = Math.floor(Math.random() * 2);
     // randon idx for gradesArr
     var gIdx = Math.floor(Math.random() * 5);
-
+    // define values for ratings
+    var academicProgress = faker.random.number({ min: 0, max: 10 });
+    var lowIncome = faker.random.number({ min: 0, max: 10 });
+    var equity = faker.random.number({ min: 0, max: 10 });
+    var testScores = faker.random.number({ min: 0, max: 10 });
     var schoolData = {
       rating: [{
-        academicProgress: faker.random.number({ min: 0, max: 10 }),
-        lowIncome: faker.random.number({ min: 0, max: 10 }),
-        equity: faker.random.number({ min: 0, max: 10 }),
-        testScores: faker.random.number({ min: 0, max: 10 }),
-        average: faker.random.number({ min: 0, max: 10 }),
+        academicProgress: academicProgress,
+        lowIncome: lowIncome,
+        equity: equity,
+        testScores: testScores,
+        average: getAvg(academicProgress, lowIncome, equity, testScores),
         lastUpdated: date
       }],
       name: faker.name.findName() + verbs[vIdx],
@@ -91,13 +95,22 @@ const getRatio = (num1, num2) => {
   return Math.floor(num1 / num2);
 }
 
+// function to get average of n numbers
+const getAvg = (...numbers) => {
+  const avg = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue
+  }, 0);
+  return Math.floor(avg / numbers.length);
+}
+
 // fn to randomly generate reviews
 
 const reviewGenerator = () => {
   // array for reviews
   var review = [];
+
   var sentences =
-    ['Disadvantaged students at this school are performing far better than other students in the state, and this school is successfully closing the achievement gap. ', 'I am very satisfied of my experience in this school! Teachers are great and staffs are awesome! ', 'It\'s been great, better than most schools! ', 'Such a lack of leadership!! Who is the manager at this school?? Who is in charge of informing the parents??? ', 'Does the supervisor know any accurate information??? ', 'We\'ve been so happy here! The school has a close, community feel to it, and the setting up in Debs Park is just beautiful. ', 'The kids spend lots of time outside, including in the edible garden. ', 'The teachers and staff are so welcoming and helpful, and Principal Narvaez greets the students at the gate by name every morning.', 'We\'re excited to send our youngest here, too, once he\'s old enough! ', 'Yes my daughter was accepted, it’s a good school. Well, that’s what she said! ', 'its a great school I recommend it to all the 5th graders. ', 'The teachers all care for what you have to say and want to learn in what way the try there best to succeed at making the students happy with learning. ', 'My name Jeff. ', 'My name is michael, and i like to party. ', 'I can\'t say enough good about this school. ', '60% of the time, my kid goes here 100% of the time. ', 'Mr. Cooper is the best teacher I have ever had!!! ']
+    ['Disadvantaged students at this school are performing far better than other students in the state, and this school is successfully closing the achievement gap. ', 'I am very satisfied of my experience in this school! Teachers are great and staffs are awesome! ', 'It\'s been great, better than most schools! ', 'Such a lack of leadership!! Who is the manager at this school?? Who is in charge of informing the parents??? ', 'Does the supervisor know any accurate information??? ', 'We\'ve been so happy here! The school has a close, community feel to it, and the setting up in Debs Park is just beautiful. ', 'The kids spend lots of time outside, including in the edible garden. ', 'The teachers and staff are so welcoming and helpful, and Principal Narvaez greets the students at the gate by name every morning.', 'We\'re excited to send our youngest here, too, once he\'s old enough! ', 'Yes my daughter was accepted, it’s a good school. Well, that’s what she said! ', 'its a great school I recommend it to all the 5th graders. ', 'The teachers all care for what you have to say and want to learn in what way the try there best to succeed at making the students happy with learning. ', 'My name Jeff. ', 'My name is michael, and i like to party. ', 'I can\'t say enough good about this school. ', '60% of the time, my kid goes here 100% of the time. ', 'Mr. Cooper is the best teacher I have ever had!!! ', 'Safe and clean. ', 'The teachers are first rate and they care. ', 'Great facilities with programs that challenge your children. ', 'We have been at this school for two years and are absolutely happy and impressed. ', 'The teachers are outstanding, the principal is amazing (she knows every student\'s name!). ', 'It is a smaller school which is ideal for us - lots of individual attention and you get to know everyone. ']
 
   var random = Math.floor(Math.random() * 6 + 2);
   [...Array(random)].map((item) => {
