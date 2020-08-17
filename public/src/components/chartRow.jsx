@@ -1,10 +1,10 @@
 import React from 'react';
-import RatingIcon from './rating_icon.jsx';
+import RatingIcon from './ratingIcon.jsx';
 import UnderBar from './underbar.jsx';
-import DistanceMeter from './distance_meter.jsx';
-import StarBar from './five_star.jsx';
+import DistanceMeter from './distanceMeter.jsx';
+import StarBar from './starBar.jsx';
 import styles from '../styles.css';
-import StudentBody from './student_body.jsx';
+import StudentBody from './studentBody.jsx';
 import Modal from '../modal/modal.jsx';
 
 class Row extends React.Component {

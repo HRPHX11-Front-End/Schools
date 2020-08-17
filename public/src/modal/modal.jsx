@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import styles from './modal.css';
 import Reviews from './reviews.jsx';
 import { BsX } from "react-icons/bs";
-import RatingIcon from '../components/rating_icon.jsx';
+import RatingIcon from '../components/ratingIcon.jsx';
 import UnderBar from '../components/underbar.jsx';
-import StarBar from '../components/five_star.jsx';
-import GreatSchoolRating from './GreatSchoolRating.jsx';
+import StarBar from '../components/starBar.jsx';
+import GreatSchoolRating from './greatSchoolRating.jsx';
 
 class Modal extends React.Component {
   constructor(props) {

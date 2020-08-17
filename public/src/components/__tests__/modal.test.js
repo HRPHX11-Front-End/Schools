@@ -2,14 +2,13 @@ import React from 'react';
 import { configure, shallow, mount, render } from 'enzyme';
 import Modal from '../../modal/modal.jsx';
 import Reviews from '../../modal/reviews.jsx';
-import StarBar from '../five_star.jsx';
+import StarBar from '../starBar.jsx';
 import UnderBar from '../underbar.jsx';
-import RatingIcon from '../rating_icon.jsx';
-import GreatSchoolRating from '../../modal/GreatSchoolRating.jsx';
+import RatingIcon from '../ratingIcon.jsx';
+import GreatSchoolRating from '../../modal/greatSchoolRating.jsx';
 import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
-
 
 describe('<Modal />', () => {
   let wrapper;

@@ -21,7 +21,7 @@ const StarBar = (props) => {
       setRenderComment(true);
       setStarValue(Math.ceil(sum / state.length));
     }
-  }, [])
+  }, []);
 
   // props.reviews will only be an array on the main page, on the Modal this will be a single value allowing me to render the page conditionally on this assumption
 

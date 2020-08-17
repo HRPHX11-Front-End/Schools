@@ -1,5 +1,5 @@
 import React from 'react';
-import Row from './chart_row.jsx';
+import Row from './chartRow.jsx';
 import styles from '../styles.css';
 
 function Chart(props) {

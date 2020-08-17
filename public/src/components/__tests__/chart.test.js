@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Chart from '../chart.jsx';
-import Row from '../chart_row.jsx';
+import Row from '../chartRow.jsx';
 
 configure({ adapter: new Adapter() });
 
