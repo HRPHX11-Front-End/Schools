@@ -1,18 +1,19 @@
 import React from 'react';
+import styles from './modal.css';
 
 const GreatSchoolRating = (props) => {
   const component = props.ratings.map((rating, i) => (
     <div key={i}>
-      <li>{rating.equity}/10 Equity</li>
-      <li>{rating.lowIncome}/10 Low Income</li>
-      <li>{rating.testScores}/10 Test Scores</li>
-      <li>{rating.academicProgress}/10 Academic Progress</li>
+      <li><span className={styles.ratingNum}>{rating.equity}</span><span className={styles.outOfTen}>/10 Equity</span></li>
+      <li><span className={styles.ratingNum}>{rating.lowIncome}</span><span className={styles.outOfTen}>/10 Low Income</span></li>
+      <li><span className={styles.ratingNum}>{rating.testScores}</span><span className={styles.outOfTen}>/10 Test Scores</span></li>
+      <li><span className={styles.ratingNum}>{rating.academicProgress}</span><span className={styles.outOfTen}>/10 Academic Progress</span></li>
     </div>
   ))
 
   return (
     <div>
-      <span>GreatSchoolsRating</span>
+      <span className={styles.title}>GreatSchoolsRating</span>
       <ul>{component}</ul>
     </div>
   )

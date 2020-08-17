@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header.jsx';
+import DropDown from './flyout.jsx';
 import Chart from './chart.jsx';
 import Modal from '../modal/modal.jsx';
 import css from '../styles.css';
@@ -44,14 +45,21 @@ class App extends React.Component {
     } else if (this.state.page === 'main') {
       return (
         <div>
-          <Header />
-          <Chart setPage={this.setPage} schools={this.state.schoolData} />
+          <div className={css.MainFlex}>
+            <Header  />
+            <DropDown />
+            <Chart setPage={this.setPage} schools={this.state.schoolData} />
+          </div>
         </div>
       )
     } else {
-      return (<div>
-        <Header className={css.Header}/>
+      return (
+      <div>
+        <div className={css.MainFlex}>
+        <Header className={css.header} />
+        <DropDown />
         <Chart setPage={this.setPage} schools={this.state.schoolData} />
+        </div>
         <Modal setPage={this.setPage} school={this.state.page} />
       </div>)
     }

@@ -28,18 +28,31 @@ class Modal extends React.Component {
     return (
       <div className={styles.Backdrop}>
         <div className={styles.Modal}>
-          <BsX className={styles.ModalExit} size={35} onClick={() => { this.props.setPage('main') }} />
-          <RatingIcon className={styles.RatingAndName} rating={this.props.school.rating[0].average} />
-          <span className={styles.RatingAndName} >{this.props.school.name} </span>
-          <span>{address}</span>
-          <UnderBar details={this.props.school.details[0]} onModal={true} studentBody={this.props.school.studentBody} />
-          <div>{this.props.school.data.studTeachRatio} Students/Teachers</div>
-          <div className={styles.blueText} >{this.props.school.data.name}</div>
-          <div className={styles.blueText} >{this.props.school.data.district}</div>
-          <div><StarBar className={styles.starBar} reviews={this.props.school.reviews} /></div>
-          <GreatSchoolRating ratings={this.props.school.data.rating} />
-          <div>Last Updated: {this.props.school.data.rating[0].lastUpdated}</div>
-          <div>Community Reviews ({this.props.school.reviews.length})</div>
+          <BsX tabIndex={0} className={styles.ModalExit} size={35} onClick={() => { this.props.setPage('main') }} />
+          <div className={styles.FirstFlex}>
+            <RatingIcon className={styles.ratingIcon} rating={this.props.school.rating[0].average} />
+            <p className={styles.title} >{this.props.school.name} </p>
+          </div>
+
+          <div className={styles.SecondFlex}>
+            <div>{address}</div>
+            <UnderBar details={this.props.school.details[0]} onModal={true} studentBody={this.props.school.studentBody} />
+          </div>
+
+          <div className={styles.StarFlex}>
+            <StarBar reviews={this.props.school.reviews} />
+            <p className={styles.reviewDisplay}>{`${this.props.school.reviews.length} ${(this.props.school.reviews.length === 1 ? ' review' : ' reviews')}`}</p></div>
+
+          <div className={styles.ThirdFlex}>
+            <p>{this.props.school.data.studTeachRatio} Students/Teachers</p>
+            <p className={styles.blueText} >{this.props.school.data.name}</p>
+            <p className={styles.blueText} >{this.props.school.data.district}</p>
+          </div>
+          <div className={styles.FourthFlex}>
+            <GreatSchoolRating ratings={this.props.school.data.rating} />
+            <p className={styles.greyText}>Last Updated: {this.props.school.data.rating[0].lastUpdated}</p>
+          </div>
+          <p className={styles.title}>Community Reviews ({this.props.school.reviews.length})</p>
           <Reviews className={styles.Comments} reviews={this.props.school.reviews} />
         </div>
       </div>

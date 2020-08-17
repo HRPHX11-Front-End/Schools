@@ -5,58 +5,46 @@
 }
 
 body {
-  font-family: 'Libre Franklin' !important;
+  font-family: 'Libre Franklin';
   color: #333;
   font-size: 1rem;
+  font-weight: 900;
   line-height: 1.375;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Header {
+.MainFlex {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-content: center;
   margin: 10px 0 0 35px;
-  padding: 10px 0 0 35px;
 }
 
-.hederTitle {
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  word-spacing: .125rem;
-  padding-left: 5.5rem;
-}
+
 
 .headerSubtitle {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: flex-start;
-  align-content: center;
-  color: #333;
   border-bottom-style: dashed;
   border-color: #999;
   cursor: pointer;
-  max-width: 135px;
+  max-width: fit-content;
 }
+
 
 .flexContainer {
   display: flex;
   flex-direction: row;
-  padding: 10px;
-  /* background-color: #ccc; */
+  padding: 8px 0 8px 0;
   justify-content: stretch;
   flex-wrap: wrap;
 }
 
 .itemOne {
   display: flex;
-  /* background-color: yellow; */
-  padding: 0 10px;
-  margin: 0 10px;
+  padding-right: 10px;
+  margin-right: 10px;
   text-align: left;
   min-width: 350px;
   max-width: 700px;
@@ -67,15 +55,14 @@ body {
 
 .itemTwo {
   display: flex;
-  /* background-color: pink; */
-  padding: 0 10px;
-  margin: 0 10px;
+  flex-direction: column;
+  padding: 5px 10px;
+  margin: 5px 10px;
   text-align: left;
   align-content: center;
   max-height: 56px;
   min-width: 100px;
 }
-
 
 h2 {
   padding-left: 0;
@@ -96,13 +83,12 @@ li {
 }
 
 .ratingIcon {
-  margin: 0 10px 0 10px;
-  padding: 0 10px 0 10px;
+  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .lightGrey {
   color: #767676;
-  display: block;
   line-height: 18px;
   font-size: .875rem;
   text-rendering: optimizeLegibility;
@@ -119,24 +105,64 @@ li {
 }
 
 .SchoolName {
-  padding-top: 4px;
+  padding: 15px 0;
   line-height: 18px;
   color: #1080a2;
   cursor: pointer;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-weight:400;
   text-overflow: 'ellipsis';
   overflow: 'hidden';
   font-size:16px;
 }
 
 .reviewText {
-  line-height: 18px;
+  line-height: 14px;
   font-size: .875rem;
   color: #1080a2;
   cursor: pointer;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+
+.DDflex {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-around;
+  font-size: .875rem;
+  z-index: 500;
+  vertical-align: baseline;
+  left: 42.5px;
+  position: absolute;
+  background-color: white;
+  text-align: left;
+  border-top-color: #fff;
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,.5);
+  max-width: 15%;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.Arrow {
+  position: absolute;
+  top: -15px;
+  width  : 0;
+  height : 0;
+  border-left-color: rgba(0,0,0,.5);
+  border-right-color:  rgba(0,0,0,.5);
+  border-left   : 13px solid transparent;
+  border-right  : 13px solid transparent;
+  border-bottom : 25px solid white;
+}
+
+.pad {
+  padding-top: 15px;
+}
+
+
+
+
+

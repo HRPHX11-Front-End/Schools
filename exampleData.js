@@ -1,6 +1,4 @@
 const faker = require('faker');
-const txtgen = require('txtgen');
-
 
 // function to generate 300 fake reviews and 100 fake houses with random data points
 module.exports.dataGenerator = () => {
@@ -12,11 +10,8 @@ module.exports.dataGenerator = () => {
   // array to hold all school docs
   var schoolRecords = [];
 
-
-
   // 100 school data documents
   for (let i = 0; i < 100; i++) {
-    var date = faker.date.past(1, new Date(2020, 0, 1))
     // randon idx for verbs
     var vIdx = Math.floor(Math.random() * 4);
     // randon idx for networkArr
@@ -35,7 +30,7 @@ module.exports.dataGenerator = () => {
         equity: equity,
         testScores: testScores,
         average: getAvg(academicProgress, lowIncome, equity, testScores),
-        lastUpdated: date
+        lastUpdated: getDate(),
       }],
       name: faker.name.findName() + verbs[vIdx],
       district: faker.address.streetName() + ' School District',
@@ -68,8 +63,6 @@ module.exports.dataGenerator = () => {
 
 // fn to obtain reviews
 const reviews = () => {
-  // format random dat
-  var date = faker.date.past(20, new Date(2020, 0, 1))
   // create random variable
   var random = Math.floor(Math.random() * 10 + 1);
   // array to hold all reviews
@@ -79,7 +72,7 @@ const reviews = () => {
       rating: faker.random.number({ min: 1, max: 5 }),
       comment: reviewGenerator(),
       submitter: 'Parent',
-      date: date
+      date: getDate()
     })
   })
   return reviewRecords;
@@ -103,8 +96,26 @@ const getAvg = (...numbers) => {
   return Math.floor(avg / numbers.length);
 }
 
-// fn to randomly generate reviews
 
+// function to get a random date
+const getDate = () => {
+  // create random dates for past 20 years
+  const yearRange = [...Array(20)].map((year, index) => {
+    return 2000 + index;
+  });
+  const dayRange = [...Array(31)].map((day, index) => {
+    return 1 + index;
+  });
+  const monthRange = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+
+  var randomDay = Math.floor(Math.random() * dayRange.length);
+  var randomMonth = Math.floor(Math.random() * monthRange.length);
+  var randomYear = Math.floor(Math.random() * yearRange.length);
+  var date = `${monthRange[randomMonth]} ${dayRange[randomDay]}, ${yearRange[randomYear]}`;
+  return date;
+}
+
+// fn to randomly generate reviews
 const reviewGenerator = () => {
   // array for reviews
   var review = [];
@@ -119,3 +130,4 @@ const reviewGenerator = () => {
   })
   return review.join('');
 }
+

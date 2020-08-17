@@ -7,7 +7,7 @@ const reviewSchema = mongoose.Schema({
   rating: Number,
   comment: String,
   submitter: String,
-  date: Date
+  date: String
 });
 
 const schoolSchema = new Schema({
@@ -17,7 +17,7 @@ const schoolSchema = new Schema({
     equity: Number,
     testScores: Number,
     average: Number,
-    lastUpdated: Date
+    lastUpdated: String
   }],
   name: String,
   district: String,

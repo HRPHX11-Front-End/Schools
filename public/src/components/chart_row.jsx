@@ -18,6 +18,7 @@ class Row extends React.Component {
 
   render() {
     // 2 sources of truth... passing in props into setPage allows the rendered child componenets to display information based on the props being passed down
+
     return (
       <div className={styles.flexContainer} onClick={() => this.props.setPage(this.state.schoolInfo)}>
         <div className={styles.itemOne} >
@@ -32,7 +33,11 @@ class Row extends React.Component {
           <StudentBody className={styles.studentBody} studentBody={this.props.studentBody} />
         </div>
         <div className={styles.itemTwo}>
-          <StarBar className={styles.starBar} reviews={this.props.reviews} />
+          <StarBar reviews={this.props.reviews} />
+          <div className={styles.reviewText}>
+            {this.props.reviews.length}
+            {(this.props.reviews.length === 1 ? ' review' : ' reviews')}
+          </div>
         </div>
         <div className={styles.itemTwo}>
           <DistanceMeter className={styles.DistanceMeter} distance={this.props.distance} />

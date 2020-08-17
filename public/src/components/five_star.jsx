@@ -27,20 +27,11 @@ const StarBar = (props) => {
   // props.reviews will only be an array on the main page, on the Modal this will be a single value allowing me to render the page conditionally on this assumption
 
   return (
-    (renderComment ? <div value={state}>
-      {[...Array(5)].map((star, i) => (
-        <FaStar key={i} size={20} color={i + 1 <= state ? '#fad700' : '#c2c2c2'} />
-      ))}
-      <div className={styles.reviewText}>
-        {review}
-        {review === 1 ? ' review' : ' reviews'}
-      </div>
-    </div> : <div value={state}>
+    <div value={state}>
         {[...Array(5)].map((star, i) => (
           <FaStar key={i} size={20} color={i + 1 <= state ? '#fad700' : '#c2c2c2'} />
         ))}
       </div>
-    )
   )
 }
 
