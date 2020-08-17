@@ -21,9 +21,7 @@ const FlyOut = (props) => {
           <div>
             <div>
               <p>GreatSchools' Summary Rating calculation is based on 4 of the school's themed ratings, including: test scores, student/academic progress, college readiness, and equity.</p>
-
               <p className={`${styles.pad} ${styles.reviewText}`}>Learn More.</p>
-
             </div>
           </div>
         </div>

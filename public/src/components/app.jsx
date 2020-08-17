@@ -46,7 +46,7 @@ class App extends React.Component {
       return (
         <div>
           <div className={css.MainFlex}>
-            <Header  />
+            <Header />
             <DropDown />
             <Chart setPage={this.setPage} schools={this.state.schoolData} />
           </div>
@@ -54,14 +54,14 @@ class App extends React.Component {
       )
     } else {
       return (
-      <div>
-        <div className={css.MainFlex}>
-        <Header className={css.header} />
-        <DropDown />
-        <Chart setPage={this.setPage} schools={this.state.schoolData} />
-        </div>
-        <Modal setPage={this.setPage} school={this.state.page} />
-      </div>)
+        <div>
+          <div className={css.MainFlex}>
+            <Header className={css.header} />
+            <DropDown />
+            <Chart setPage={this.setPage} schools={this.state.schoolData} />
+          </div>
+          <Modal setPage={this.setPage} school={this.state.page} />
+        </div>)
     }
   }
 

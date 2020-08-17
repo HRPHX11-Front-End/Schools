@@ -6,7 +6,7 @@ function Chart(props) {
 
   const listItems = props.schools.map(school => (
     <li key={school._id} className={styles.flexContainer}>
-      <Row  data={school} setPage={props.setPage} name={school.name} rating={school.rating}  details={school.details} studentBody={school.studentBody} reviews={school.reviews} distance={school.distance} />
+      <Row data={school} setPage={props.setPage} name={school.name} rating={school.rating} details={school.details} studentBody={school.studentBody} reviews={school.reviews} distance={school.distance} />
     </li>
   ))
   return (

@@ -18,7 +18,6 @@ class Row extends React.Component {
 
   render() {
     // 2 sources of truth... passing in props into setPage allows the rendered child componenets to display information based on the props being passed down
-
     return (
       <div className={styles.flexContainer} onClick={() => this.props.setPage(this.state.schoolInfo)}>
         <div className={styles.itemOne} >

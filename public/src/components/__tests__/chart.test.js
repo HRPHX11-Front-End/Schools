@@ -10,7 +10,7 @@ describe('<Chart />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<Chart schools={[
+    wrapper = shallow(<Chart schools={[
       {
         _id: "5f3638c94466921b836c213d",
         rating: [

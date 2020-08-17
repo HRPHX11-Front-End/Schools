@@ -18,7 +18,8 @@ const RatingIcon = (props) => {
     height: '56px',
     textAlign: 'center',
     lineHeight: '56px',
-    borderRadius: '50%'
+    borderRadius: '50%',
+    paddingLeft: '11px'
   }
 
   return (

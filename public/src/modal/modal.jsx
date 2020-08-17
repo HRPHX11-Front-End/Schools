@@ -29,6 +29,7 @@ class Modal extends React.Component {
       <div className={styles.Backdrop}>
         <div className={styles.Modal}>
           <BsX tabIndex={0} className={styles.ModalExit} size={35} onClick={() => { this.props.setPage('main') }} />
+
           <div className={styles.FirstFlex}>
             <RatingIcon className={styles.ratingIcon} rating={this.props.school.rating[0].average} />
             <p className={styles.title} >{this.props.school.name} </p>
@@ -41,19 +42,23 @@ class Modal extends React.Component {
 
           <div className={styles.StarFlex}>
             <StarBar reviews={this.props.school.reviews} />
-            <p className={styles.reviewDisplay}>{`${this.props.school.reviews.length} ${(this.props.school.reviews.length === 1 ? ' review' : ' reviews')}`}</p></div>
+            <p className={styles.reviewDisplay}>{`${this.props.school.reviews.length} ${(this.props.school.reviews.length === 1 ? ' review' : ' reviews')}`}</p>
+          </div>
 
           <div className={styles.ThirdFlex}>
             <p>{this.props.school.data.studTeachRatio} Students/Teachers</p>
             <p className={styles.blueText} >{this.props.school.data.name}</p>
             <p className={styles.blueText} >{this.props.school.data.district}</p>
           </div>
+
           <div className={styles.FourthFlex}>
             <GreatSchoolRating ratings={this.props.school.data.rating} />
             <p className={styles.greyText}>Last Updated: {this.props.school.data.rating[0].lastUpdated}</p>
           </div>
+
           <p className={styles.title}>Community Reviews ({this.props.school.reviews.length})</p>
           <Reviews className={styles.Comments} reviews={this.props.school.reviews} />
+
         </div>
       </div>
     )
