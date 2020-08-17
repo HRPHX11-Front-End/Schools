@@ -3,34 +3,40 @@ const faker = require('faker');
 // function to generate 300 fake reviews and 100 fake houses with random data points
 module.exports.dataGenerator = () => {
   // create random arrs
+  var gradesArr = ['Preschool to 6', 'Preschool to 8', 'K to 12', '6 to 12', '9 to 12'];
   var verbs = [' Elementary School', ' High School', ' Middle School', ' Academy'];
-  var vIdx = Math.floor(Math.random() * 4);
-
   var distanceArr = ['Nearby school', 'Serves this home'];
   var networkArr = ['Public', 'Private']
-  var nIdx = Math.floor(Math.random() * 2);
-
-  var gradesArr = ['Preschool to 6', 'Preschool to 8', 'K to 12', '6 to 12', '9 to 12'];
-  var gIdx = Math.floor(Math.random() * 5);
-
   // array to hold all school docs
   var schoolRecords = [];
 
   // 100 school data documents
   for (let i = 0; i < 100; i++) {
+    // randon idx for verbs
+    var vIdx = Math.floor(Math.random() * 4);
+    // randon idx for networkArr
+    var nIdx = Math.floor(Math.random() * 2);
+    // randon idx for gradesArr
+    var gIdx = Math.floor(Math.random() * 5);
+    // define values for ratings
+    var academicProgress = faker.random.number({ min: 0, max: 10 });
+    var lowIncome = faker.random.number({ min: 0, max: 10 });
+    var equity = faker.random.number({ min: 0, max: 10 });
+    var testScores = faker.random.number({ min: 0, max: 10 });
     var schoolData = {
       rating: [{
-        academicProgress: faker.random.number({ min: 0, max: 10 }),
-        lowIncome: faker.random.number({ min: 0, max: 10 }),
-        equity: faker.random.number({ min: 0, max: 10 }),
-        testScores: faker.random.number({ min: 0, max: 10 }),
-        average: faker.random.number({ min: 0, max: 10 })
+        academicProgress: academicProgress,
+        lowIncome: lowIncome,
+        equity: equity,
+        testScores: testScores,
+        average: getAvg(academicProgress, lowIncome, equity, testScores),
+        lastUpdated: getDate(),
       }],
       name: faker.name.findName() + verbs[vIdx],
       district: faker.address.streetName() + ' School District',
       studentBody: faker.random.number({ min: 500, max: 2500 }),
       teacherBody: faker.random.number({ min: 100, max: 500 }),
-      teachStudRatio: getRatio(faker.random.number({ min: 0, max: 50 }), faker.random.number({ min: 100, max: 150 })),
+      studTeachRatio: getRatio(faker.random.number({ min: 100, max: 150 }), faker.random.number({ min: 20, max: 80 })),
       distance: faker.random.number({ min: 0.1, max: 10 }),
       address: [{
         street: faker.random.number({ min: 1000, max: 9999 }) + ' ' + faker.address.streetName(),
@@ -48,9 +54,6 @@ module.exports.dataGenerator = () => {
     schoolRecords.push(schoolData);
   }
 
-
-
-
   var data = [{
     'model': 'School',
     'documents': schoolRecords
@@ -61,15 +64,15 @@ module.exports.dataGenerator = () => {
 // fn to obtain reviews
 const reviews = () => {
   // create random variable
-  var random = Math.floor(Math.random() * 11);
+  var random = Math.floor(Math.random() * 10 + 1);
   // array to hold all reviews
   var reviewRecords = [];
   [...Array(random)].map((item) => {
     reviewRecords.push({
-      rating: faker.random.number({ min: 0, max: 5 }),
-      comment: faker.lorem.paragraphs(),
+      rating: faker.random.number({ min: 1, max: 5 }),
+      comment: reviewGenerator(),
       submitter: 'Parent',
-      date: faker.date.past()
+      date: getDate()
     })
   })
   return reviewRecords;
@@ -82,6 +85,49 @@ const getRatio = (num1, num2) => {
       return getRatio(num1 / i, num2 / i);
     }
   }
-  return `${num1}:${num2}`;
+  return Math.floor(num1 / num2);
+}
+
+// function to get average of n numbers
+const getAvg = (...numbers) => {
+  const avg = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue
+  }, 0);
+  return Math.floor(avg / numbers.length);
+}
+
+
+// function to get a random date
+const getDate = () => {
+  // create random dates for past 20 years
+  const yearRange = [...Array(20)].map((year, index) => {
+    return 2000 + index;
+  });
+  const dayRange = [...Array(31)].map((day, index) => {
+    return 1 + index;
+  });
+  const monthRange = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'];
+
+  var randomDay = Math.floor(Math.random() * dayRange.length);
+  var randomMonth = Math.floor(Math.random() * monthRange.length);
+  var randomYear = Math.floor(Math.random() * yearRange.length);
+  var date = `${monthRange[randomMonth]} ${dayRange[randomDay]}, ${yearRange[randomYear]}`;
+  return date;
+}
+
+// fn to randomly generate reviews
+const reviewGenerator = () => {
+  // array for reviews
+  var review = [];
+
+  var sentences =
+    ['Disadvantaged students at this school are performing far better than other students in the state, and this school is successfully closing the achievement gap. ', 'I am very satisfied of my experience in this school! Teachers are great and staffs are awesome! ', 'It\'s been great, better than most schools! ', 'Such a lack of leadership!! Who is the manager at this school?? Who is in charge of informing the parents??? ', 'Does the supervisor know any accurate information??? ', 'We\'ve been so happy here! The school has a close, community feel to it, and the setting up in Debs Park is just beautiful. ', 'The kids spend lots of time outside, including in the edible garden. ', 'The teachers and staff are so welcoming and helpful, and Principal Narvaez greets the students at the gate by name every morning.', 'We\'re excited to send our youngest here, too, once he\'s old enough! ', 'Yes my daughter was accepted, it’s a good school. Well, that’s what she said! ', 'its a great school I recommend it to all the 5th graders. ', 'The teachers all care for what you have to say and want to learn in what way the try there best to succeed at making the students happy with learning. ', 'My name Jeff. ', 'My name is michael, and i like to party. ', 'I can\'t say enough good about this school. ', '60% of the time, my kid goes here 100% of the time. ', 'Mr. Cooper is the best teacher I have ever had!!! ', 'Safe and clean. ', 'The teachers are first rate and they care. ', 'Great facilities with programs that challenge your children. ', 'We have been at this school for two years and are absolutely happy and impressed. ', 'The teachers are outstanding, the principal is amazing (she knows every student\'s name!). ', 'It is a smaller school which is ideal for us - lots of individual attention and you get to know everyone. ']
+
+  var random = Math.floor(Math.random() * 6 + 2);
+  [...Array(random)].map((item) => {
+    var randomIdx = Math.floor(Math.random() * sentences.length);
+    review.push(sentences[randomIdx]);
+  })
+  return review.join('');
 }
 

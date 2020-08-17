@@ -3,12 +3,16 @@ var SRC_DIR = path.join(__dirname, '/public/src');
 var DIST_DIR = path.join(__dirname, '/public/assets/dist');
 const autoprefixer = require('autoprefixer');
 
+require("@babel/core").transform("code", {
+  plugins: ["@babel/plugin-syntax-jsx"]
+});
+
 module.exports = {
   // set webpack mode
   mode: 'development',
   entry: {
     // select entry point for webpack
-    app: `${SRC_DIR}/app.jsx`
+    app: `${SRC_DIR}/index.jsx`
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -28,9 +32,10 @@ module.exports = {
         loader: 'babel-loader',
         // this is where we define our presets
         options: {
-          presets: ['@babel/preset-react', '@babel/preset-env']
+          presets: ['@babel/preset-react', '@babel/preset-env'],
+          plugins: ["@babel/plugin-syntax-jsx"]
         }
-      }
+      },
     },
     {
       test: /\.css$/,
@@ -57,4 +62,3 @@ module.exports = {
     }],
   }
 }
-

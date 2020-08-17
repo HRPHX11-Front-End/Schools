@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles.css';
 
+// this component is not on modal
 const DistanceMeter = (props) => {
   return (
     <div>

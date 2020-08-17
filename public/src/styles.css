@@ -1,6 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: 'Libre Franklin','-apple-system','BlinkMacSystemFont','Roboto','Droid Sans',Helvetica,Arial,sans-serif;
+  font-family: 'Libre Franklin';
+  color: #333;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.375;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.MainFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: 10px 0 0 35px;
+}
+
+
+
+.headerSubtitle {
+  justify-content: flex-start;
+  border-bottom-style: dashed;
+  border-color: #999;
+  cursor: pointer;
+  max-width: fit-content;
+}
+
+
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0 8px 0;
+  justify-content: stretch;
+  flex-wrap: wrap;
+}
+
+.itemOne {
+  display: flex;
+  padding-right: 10px;
+  margin-right: 10px;
+  text-align: left;
+  min-width: 350px;
+  max-width: 700px;
+  align-content: center;
+  max-height: 56px;
+  min-width: 450px;
+}
+
+.itemTwo {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  margin: 5px 10px;
+  text-align: left;
+  align-content: center;
+  max-height: 56px;
+  min-width: 100px;
 }
 
 h2 {
@@ -21,87 +82,15 @@ li {
   white-space: nowrap;
 }
 
-.rowTitle {
-
-  font: inherit;
-  font-size: 1.5em;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
-  word-spacing: .125rem;
-  padding-left: 5.5rem;
-}
-
-.container {
-  display: flex;
-  font-family: 'Libre Franklin';
-  align-items: flex-start;
-  justify-content: stretch;
-  border-top: none;
-  border-bottom: none;
-  flex-direction: row;
-  align-content: center;
-  margin: 15px 15px;
-}
-
-.itemOne {
-  display: flex;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font-family: 'Libre Franklin';
-  vertical-align: baseline;
-  justify-content: stretch;
-  max-width: 350px;
-  vertical-align: top;
-  text-align: left;
-  width: 728px;
-  align-content: center;
-  justify-content: flex-start;
-  min-height: 64px;
-  padding: 10px 10px 10px 10px;
-
-}
-
-
-
-.itemTwo {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 10px 10px 10px;
-  align-content: center;
-  min-height: 64px;
-  justify-content: space-between;
-  justify-items: stretch;
-  flex-direction: row;
-  margin: 0 30px;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  text-align: left;
-  font-family: 'Libre Franklin';
-
-}
-
-.itemThree {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 10px 10px 10px;
-  align-content: center;
-  font-family: 'Libre Franklin';
-}
-
 .ratingIcon {
-  margin: 0 10px 0 10px;
+  margin-right: 10px;
+  padding-right: 10px;
 }
 
 .lightGrey {
   color: #767676;
-  display: block;
-  padding-top: 4px;
   line-height: 18px;
   font-size: .875rem;
-  font-family: 'Libre Franklin';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -115,13 +104,65 @@ li {
   -webkit-font-smoothing: antialiased;
 }
 
-.reviewText {
-  padding-top: 4px;
+.SchoolName {
+  padding: 15px 0;
   line-height: 18px;
   color: #1080a2;
   cursor: pointer;
-  font-size: .75rem;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  text-overflow: 'ellipsis';
+  overflow: 'hidden';
+  font-size:16px;
 }
+
+.reviewText {
+  line-height: 14px;
+  font-size: .875rem;
+  color: #1080a2;
+  cursor: pointer;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.DDflex {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: space-around;
+  font-size: .875rem;
+  z-index: 500;
+  vertical-align: baseline;
+  left: 42.5px;
+  position: absolute;
+  background-color: white;
+  text-align: left;
+  border-top-color: #fff;
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,.5);
+  max-width: 15%;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.Arrow {
+  position: absolute;
+  top: -15px;
+  width  : 0;
+  height : 0;
+  border-left-color: rgba(0,0,0,.5);
+  border-right-color:  rgba(0,0,0,.5);
+  border-left   : 13px solid transparent;
+  border-right  : 13px solid transparent;
+  border-bottom : 25px solid white;
+}
+
+.pad {
+  padding-top: 15px;
+}
+
+
+
+
+

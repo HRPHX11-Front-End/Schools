@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "school reviews, info, and stats",
   "main": "server/index.js",
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less)$": "<rootDir>/styleMock.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "react-dev": "webpack -d --watch",
+    "test": "jest --env=jsdom --collect-coverage",
+    "dev": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node seed.js"
   },
@@ -23,17 +28,22 @@
   "homepage": "https://github.com/HRPHX11-Front-End/Schools#readme",
   "devDependencies": {
     "@babel/core": "^7.11.1",
+    "@babel/plugin-syntax-jsx": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.8.6",
     "babel-core": "^6.26.3",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
+    "babel-preset-airbnb": "^5.0.0",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^4.2.1",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-adapter-react-16": "^1.15.3",
     "faker": "^4.1.0",
     "jest": "^26.2.2",
+    "jest-cli": "^26.4.0",
+    "moxios": "^0.4.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
@@ -51,6 +61,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-test-renderer": "^16.13.1",
+    "txtgen": "^2.2.7",
     "webpack-cli": "^3.3.12"
   }
 }
