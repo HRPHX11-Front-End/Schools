@@ -24,7 +24,6 @@ class Modal extends React.Component {
         {info.zip}
       </div>
     ))
-
     return (
       <div className={styles.Backdrop}>
         <div className={styles.Modal}>
