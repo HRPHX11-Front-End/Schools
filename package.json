@@ -8,7 +8,6 @@
       "^.+\\.(css|less)$": "<rootDir>/styleMock.js"
     }
   },
-  "proxy": "http://localhost:8080",
   "scripts": {
     "test": "jest --env=jsdom --collect-coverage",
     "dev": "webpack -d --watch",
