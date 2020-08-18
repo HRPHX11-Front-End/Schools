@@ -5,7 +5,7 @@ import { BsX } from "react-icons/bs";
 import RatingIcon from '../components/ratingIcon.jsx';
 import UnderBar from '../components/underbar.jsx';
 import StarBar from '../components/starBar.jsx';
-import GreatSchoolRating from './greatSchoolRating.jsx';
+import GreatSchoolRating from './GreatSchoolRating.jsx';
 
 class Modal extends React.Component {
   constructor(props) {
