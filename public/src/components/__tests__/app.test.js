@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../app.jsx';
 import Chart from '../chart.jsx';
 import Header from '../header.jsx';
+import DropDown from '../dropDown.jsx';
 import sinon from 'sinon';
 import moxios from 'moxios';
 
@@ -56,6 +57,10 @@ describe('<App />', () => {
     expect(wrapper.find(Chart)).toHaveLength(1);
   })
 
+  it('should render 1 instance of drop down component', () => {
+    wrapper.setState({ schoolDataLoaded: true })
+    expect(wrapper.find(DropDown)).toHaveLength(1);
+  })
 })
 
 
