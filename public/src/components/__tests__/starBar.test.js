@@ -11,4 +11,5 @@ describe('<StarBar />', () => {
     const wrapper = shallow(<StarBar />);
     expect(wrapper.find(FaStar)).toHaveLength(5);
   })
+
 })
