@@ -24,7 +24,6 @@ const StarBar = (props) => {
   }, []);
 
   // props.reviews will only be an array on the main page, on the Modal this will be a single value allowing me to render the page conditionally on this assumption
-
   return (
     <div value={state}>
       {[...Array(5)].map((star, i) => (

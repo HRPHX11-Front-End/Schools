@@ -10,6 +10,7 @@ import GreatSchoolRating from './greatSchoolRating.jsx';
 class Modal extends React.Component {
   constructor(props) {
     super(props)
+    // state is used to conditionally render info on underbar
     this.state = {
       isShown: false,
     }

@@ -4,14 +4,22 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from '../app.jsx';
 import Chart from '../chart.jsx';
 import Header from '../header.jsx';
+import sinon from 'sinon';
 import moxios from 'moxios';
 
 configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
+  test('should show "Loading..." when redered', () => {
+    const wrapper = render(<App />)
+    expect(wrapper.text()).toEqual('Loading...')
+  })
+})
+
+
+describe('<App />', () => {
 
   let wrapper;
-  let spyDidMount;
 
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
@@ -39,12 +47,17 @@ describe('<App />', () => {
     expect(wrapper.find(Header)).toHaveLength(1);
   })
 
+  it('should render an empty array as schoolData', () => {
+    expect(wrapper.state().schoolData).toHaveLength(0);
+  })
+
   it('should render 1 instance of chart component', () => {
     wrapper.setState({ schoolDataLoaded: true })
     expect(wrapper.find(Chart)).toHaveLength(1);
   })
 
 })
+
 
 
 

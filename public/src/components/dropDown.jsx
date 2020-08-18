@@ -5,7 +5,6 @@ import styles from '../styles.css';
 const FlyOut = (props) => {
   const [open, setOpen] = useState(false);
 
-
   const toggle = () => {
     setOpen(!open)
   }
