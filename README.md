@@ -8,6 +8,9 @@ Step 1:
     👯 Clone this repo to your local machine using https://github.com/joanaz/HireDot2.git
 
 Step 2:
+  Enter 'npm run build' in the root directory to launch webpack!
+
+Step 3:
   Enter 'npm run seed' in the root directory to re-seed the databse!
 
 Step 3:
