@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Chart from '../chart.jsx';
-import Row from '../chart_row.jsx';
+import Row from '../chartRow.jsx';
 
 configure({ adapter: new Adapter() });
 
@@ -10,7 +10,7 @@ describe('<Chart />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Chart schools={[
+    wrapper = render(<Chart schools={[
       {
         _id: "5f3638c94466921b836c213d",
         rating: [
@@ -28,6 +28,7 @@ describe('<Chart />', () => {
         studentBody: 710,
         teacherBody: 443,
         studTeachRatio: 6,
+        reviews:[{}, {}],
         distance: 0,
         address: [
           {
@@ -47,11 +48,8 @@ describe('<Chart />', () => {
       }]} />)
   });
 
-  it('should render an unordered list', () => {
-    expect(wrapper.find('ul').exists()).toBeTruthy();
-  })
-  it('should render atleast one < Row /> component', () => {
-    expect(wrapper.find(Row)).toHaveLength(1);
+  it('should render atleast one <Row /> component', () => {
+    expect(wrapper.find(Row)).not.toBeNull();
   })
 })
 

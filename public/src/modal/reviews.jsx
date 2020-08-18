@@ -1,5 +1,5 @@
 import React from 'react';
-import StarBar from '../components/five_star.jsx';
+import StarBar from '../components/starBar.jsx';
 import styles from './modal.css'
 
 const Reviews = (props) => {

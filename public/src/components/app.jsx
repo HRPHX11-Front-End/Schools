@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header.jsx';
-import DropDown from './flyout.jsx';
+import DropDown from './dropDown.jsx';
 import Chart from './chart.jsx';
 import Modal from '../modal/modal.jsx';
 import css from '../styles.css';
