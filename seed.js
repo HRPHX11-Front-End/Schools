@@ -3,7 +3,7 @@ const seeder = require('mongoose-seed');
 const exampleData = require('./exampleData.js');
 
 // Connect to MongoDB via Mongoose
-seeder.connect('mongodb://localhost/schools_db', { useUnifiedTopology: true }, function () {
+seeder.connect('mongodb://mongo/schools_db', { useUnifiedTopology: true,  useNewUrlParser: true}, function () {
 
   // Load Mongoose models
   seeder.loadModels([

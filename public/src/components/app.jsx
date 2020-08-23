@@ -20,7 +20,7 @@ class App extends React.Component {
 
   // api request to get nearby schools
   componentDidMount() {
-    axios.get('/schools')
+    axios.get("/schools/")
       .then(response => {
         // handle success
         this.setState({
