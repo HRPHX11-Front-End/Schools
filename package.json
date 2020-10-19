@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "jest --env=jsdom --collect-coverage",
-    "dev": "webpack -d --watch",
+    "dev": "webpack -d --watch & node server/index.js",
     "build": "webpack -p",
     "start": "npm run build & npm run seed & node server/index.js",
     "seed": "node seed.js"

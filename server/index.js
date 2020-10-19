@@ -12,17 +12,15 @@ app.use(cors());
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, '../public/assets')));
 
-
 app.use('/dist/bundle.js', expressStaticGzip(__dirname + '../public/assets/dist', {
    enableBrotli: true,
    orderPreference: ['br', 'gz'],
    setHeaders: function (res, path) {
-      res.setHeader("Cache-Control", "public, max-age=31536000");
+      res.setHeader("Cache-Control", "public/assets/dist, max-age=31536000");
    },
 }));
 
 app.use('/schools', require('./routes'));
-
 
 app.listen(port, () => {
   console.log(`listening on port: ${port}`);

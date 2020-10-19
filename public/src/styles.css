@@ -4,8 +4,18 @@
   box-sizing: border-box;
 }
 
-body {
+@font-face {
   font-family: 'Libre Franklin';
+  color: #333;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.375;
+  src: url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100&family=Open+Sans&display=swap");
+  font-display: swap;
+}
+
+body {
+  font-family: 'Libre Franklin', sans-serif;
   color: #333;
   font-size: 1rem;
   font-weight: 900;

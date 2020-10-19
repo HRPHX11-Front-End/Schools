@@ -11,7 +11,7 @@ require("@babel/core").transform("code", {
 
 module.exports = {
   // set webpack mode
-  mode: 'development',
+  mode: 'production',
   entry: {
     // select entry point for webpack
     app: `${SRC_DIR}/index.jsx`
@@ -65,7 +65,7 @@ module.exports = {
   },
   plugins: [
     new CompressionPlugin({
-    asset: '[path].gz[query]',
+    filename: '[path].gz[query]',
     algorithm: 'gzip',
     test: /\.js$|\.css$|\.html$/,
     threshold: 10240,
