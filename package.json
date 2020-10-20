@@ -9,7 +9,6 @@
     }
   },
   "scripts": {
-    "deploy": "gh-pages -d public/dist",
     "test": "jest --env=jsdom --collect-coverage",
     "dev": "npm-run-all --parallel dev:*",
     "dev:server": "nodemon sever/index.js",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/HRPHX11-Front-End/Schools/issues"
   },
-  "homepage": "https://hrphx11-front-end.github.io/Schools",
+  "homepage": "https://github.com/HRPHX11-Front-End/Schools#readme",
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/plugin-syntax-jsx": "^7.10.4",
