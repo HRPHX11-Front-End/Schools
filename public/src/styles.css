@@ -5,12 +5,10 @@
 }
 
 body {
-  font-family: 'Libre Franklin';
+  font-family: 'Libre Franklin', sans-serif;
   color: #333;
   font-size: 1rem;
-  font-weight: 900;
   line-height: 1.375;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -29,7 +27,6 @@ body {
   border-bottom-style: dashed;
   border-color: #999;
   cursor: pointer;
-  max-width: fit-content;
 }
 
 
@@ -69,11 +66,9 @@ h2 {
   width: 100%;
   word-spacing: .125rem;
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
   padding-bottom: 1rem;
   font-size: 1.375rem;
-  font-weight: 600;
   line-height: 2rem;
 }
 
@@ -92,16 +87,13 @@ li {
   line-height: 18px;
   font-size: .875rem;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 .black {
   line-height: 24px;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   font-family: 'Libre Franklin';
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 .SchoolName {
@@ -111,9 +103,7 @@ li {
   cursor: pointer;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
   text-overflow: 'ellipsis';
-  overflow: 'hidden';
   font-size:16px;
 }
 
@@ -123,7 +113,6 @@ li {
   color: #1080a2;
   cursor: pointer;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 .DDflex {

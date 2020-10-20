@@ -1,77 +1,59 @@
-import React from 'react';
-import Header from './header.jsx';
-import DropDown from './dropDown.jsx';
-import Chart from './chart.jsx';
-import Modal from '../modal/modal.jsx';
-import css from '../styles.css';
+import React, { useState, useEffect } from "react";
+import Header from "./Header.jsx";
+import DropDown from "./Dropdown.jsx";
+import Chart from "./Chart.jsx";
+import Modal from "../modal/Modal.jsx";
+import css from "../styles.css";
+import axios from "axios";
 
-import axios from 'axios';
+const App = (props) => {
+  const [page, setPage] = useState("main");
+  const [state, setState] = useState({ dataLoaded: false, schoolData: [] });
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      page: 'main',
-      schoolDataLoaded: false,
-      schoolData: [],
-    }
-    this.setPage = this.setPage.bind(this);
-  }
-
-  // api request to get nearby schools
-  componentDidMount() {
-    axios.get('/schools')
-      .then(response => {
-        // handle success
-        this.setState({
-          schoolDataLoaded: true,
-          schoolData: response.data,
-        })
+  useEffect(() => {
+    axios
+      .get("/schools")
+      .then(({ data }) => {
+        setState({
+          ...state,
+          dataLoaded: true,
+          schoolData: data,
+        });
+        console.log(data);
       })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-  setPage(option) {
-    this.setState({
-      page: option
-    })
-  }
-
-  renderPage(data) {
-    if (!this.state.schoolDataLoaded) {
-      return (<div>Loading...</div>)
-    } else if (this.state.page === 'main') {
+  const renderView = () => {
+    if (!state.dataLoaded) {
+      return <div>Loading...</div>;
+    } else if (page === "main") {
       return (
         <div>
           <div className={css.MainFlex}>
             <Header />
             <DropDown />
-            <Chart setPage={this.setPage} schools={this.state.schoolData} />
+            <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div>
           <div className={css.MainFlex}>
             <Header className={css.header} />
             <DropDown />
-            <Chart setPage={this.setPage} schools={this.state.schoolData} />
+            <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
-          <Modal setPage={this.setPage} school={this.state.page} />
-        </div>)
+          <Modal setPage={setPage} school={page} />
+        </div>
+      );
     }
-  }
+  };
 
-  render() {
-    return (
-      <div>
-        {this.renderPage()}
-      </div>
-    )
-  }
-}
+  return <div>{renderView()}</div>;
+};
 
 export default App;
