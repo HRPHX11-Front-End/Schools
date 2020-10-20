@@ -104,6 +104,6 @@ dist/app.bundle.js
 .tern-port
 
 # Bundle
-public/dist/bundle.js
+public/dist/bundle*
 public/dist/index.html
 

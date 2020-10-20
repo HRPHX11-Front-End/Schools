@@ -1,17 +1,45 @@
-# Schools
-School Chart Repository
+# Read Me
 
-Step 1:
-  Option 1:
-    🍴 Fork this repo!
-  Option 2:
-    👯 Clone this repo to your local machine using https://github.com/HRPHX11-Front-End/Schools.git.
+![](README.gif)
 
-Step 2:
-  In the root directory's terminal:
-    Enter 'npm start' to serve up index.html!
-    Enter 'npm run build' to launch webpack!
-    Enter 'npm run seed' to re-seed the databse!
+> This micro-service is only part of a bigger Application built using service oriented architecture.
 
-Step 3:
-  Navigate to http://localhost:3000 and experience the magic!
+---
+
+### Table of Contents
+
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+
+---
+
+## Description
+
+> This service consists of a list of nearby schools (randomly genrated), and reviews of each of the schools if it is clicked.
+
+#### Tech Stack
+
+- React.js
+- Node.js
+- Express.js
+- MongoDB
+
+---
+
+## Installation
+
+1. clone repository onto local machine from https://github.com/HRPHX11-Front-End/Schools.git.
+2. open your terminal in the root directory of project and run the following:
+
+```html
+npm install
+npm run prod
+```
+
+
+3. navigate to localhost:3000 and experience the magic!
+
+[Back To The Top](#read-me)
+
+---
