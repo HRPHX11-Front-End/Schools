@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Header from "./header.jsx";
-import DropDown from "./dropDown.jsx";
-import Chart from "./chart.jsx";
-import Modal from "../modal/modal.jsx";
+import Header from "./Header.jsx";
+import DropDown from "./Dropdown.jsx";
+import Chart from "./Chart.jsx";
+import Modal from "../modal/Modal.jsx";
 import css from "../styles.css";
 import axios from "axios";
 
@@ -13,18 +13,22 @@ const App = (props) => {
   useEffect(() => {
     axios
       .get("/schools")
-      .then((response) => {
-        setState(...state, {
-          dataLoaded: true,
-          schoolData: response.data,
-        });
+      .then(({ data }) => {
+        setState(
+          { ...state },
+          {
+            dataLoaded: true,
+            schoolData: data,
+          }
+        );
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  function renderPage(data) {
+  const renderView = () => {
     if (!state.dataLoaded) {
       return <div>Loading...</div>;
     } else if (page === "main") {
@@ -33,7 +37,7 @@ const App = (props) => {
           <div className={css.MainFlex}>
             <Header />
             <DropDown />
-            <Chart setPage={setPage} schools={state.schoolData} />
+            <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
         </div>
       );
@@ -43,15 +47,15 @@ const App = (props) => {
           <div className={css.MainFlex}>
             <Header className={css.header} />
             <DropDown />
-            <Chart setPage={setPage} schools={state.schoolData} />
+            <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
           <Modal setPage={setPage} school={page} />
         </div>
       );
     }
-  }
+  };
 
-  return <div>{renderPage()}</div>;
+  return <div>{renderView()}</div>;
 };
 
 export default App;

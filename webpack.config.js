@@ -2,18 +2,16 @@ const path = require('path');
 var SRC_DIR = path.join(__dirname, '/public/src');
 var DIST_DIR = path.join(__dirname, '/public/assets/dist');
 const autoprefixer = require('autoprefixer');
-const CompressionPlugin = require('compression-webpack-plugin');
-const BrotliPlugin = require('brotli-webpack-plugin');
+// const CompressionPlugin = require('compression-webpack-plugin');
+// const BrotliPlugin = require('brotli-webpack-plugin');
 
 require("@babel/core").transform("code", {
   plugins: ["@babel/plugin-syntax-jsx"]
 });
 
 module.exports = {
-  // set webpack mode
-  mode: 'production',
+  mode: 'development',
   entry: {
-    // select entry point for webpack
     app: `${SRC_DIR}/index.jsx`
   },
   resolve: {
@@ -25,14 +23,10 @@ module.exports = {
   },
   module: {
     rules: [{
-      // A regex that looks at all Javascript files
       test: [/\.jsx$/],
-      // include: SRC_DIR,
-      // do not include node modules
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
-        // this is where we define our presets
         options: {
           presets: ['@babel/preset-react', '@babel/preset-env'],
           plugins: ["@babel/plugin-syntax-jsx"]
@@ -53,30 +47,23 @@ module.exports = {
             }
           }
         },
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: () => [autoprefixer()]
-          }
-        }
       ]
     }],
   },
-  plugins: [
-    new CompressionPlugin({
-    filename: '[path].gz[query]',
-    algorithm: 'gzip',
-    test: /\.js$|\.css$|\.html$/,
-    threshold: 10240,
-    minRatio: 0.7
-    }),
-    new BrotliPlugin({
-    asset: '[path].br[query]',
-    test: /\.js$|\.css$|\.html$/,
-    threshold: 10240,
-    minRatio: 0.7
-    })
-   ]
+  // plugins: [
+  //   new CompressionPlugin({
+  //   filename: '[path].gz[query]',
+  //   algorithm: 'gzip',
+  //   test: /\.js$|\.css$|\.html$/,
+  //   threshold: 10240,
+  //   minRatio: 0.7
+  //   }),
+  //   new BrotliPlugin({
+  //   asset: '[path].br[query]',
+  //   test: /\.js$|\.css$|\.html$/,
+  //   threshold: 10240,
+  //   minRatio: 0.7
+  //   })
+  //  ]
 
 }
