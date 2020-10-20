@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const SRC_DIR = path.join(__dirname, 'public', 'src');
-const DIST_DIR = path.join(__dirname, 'public', 'assets', 'dist');
+const DIST_DIR = path.join(__dirname, 'public', 'dist');
 
 module.exports = {
   module: {
@@ -20,18 +20,16 @@ module.exports = {
     {
       test: /\.(css|less)$/,
       exclude: /node_modules/,
-      use: [
-        {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 1,
-            esModule: false,
-            sourceMap: true,
-            modules: {
-              localIdentName: '[path][name]__[local]--[hash:base64:5]'
-            }
+      use: [{ loader: 'style-loader' },
+      {
+        loader: 'css-loader',
+        options: {
+          importLoaders: 1,
+          modules: {
+            localIdentName: '[path][name]__[local]--[hash:base64:5]'
           }
         }
+      }
       ]
     }],
   },
