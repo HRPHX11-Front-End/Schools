@@ -4,13 +4,13 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 const db = require('../database/config.js');
-const logger = require('morgan');
+const morgan = require('morgan');
 
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, '..', 'public', 'assets')));
+app.use(morgan('dev'));
+app.use(express.static(path.join(__dirname, '..', 'public', 'assets', 'dist')));
 
 // app.use('/dist/bundle.js', expressStaticGzip(__dirname + '../public/assets/dist', {
 //    enableBrotli: true,

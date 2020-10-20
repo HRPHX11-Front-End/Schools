@@ -1,4 +1,0 @@
-{
-  "presets": ["@babel/preset-react", "@babel/preset-env", "airbnb"],
-  "plugins": ["@babel/plugin-syntax-jsx"]
-}

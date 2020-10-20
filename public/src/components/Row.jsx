@@ -21,7 +21,7 @@ const Row = (props) => {
           <RatingIcon rating={props.rating[0].average} />
         </div>
         <span className={styles.SchoolName}>
-          {this.props.name}
+          {props.name}
           <UnderBar details={props.details[0]} />
         </span>
       </div>

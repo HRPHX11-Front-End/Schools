@@ -14,13 +14,11 @@ const App = (props) => {
     axios
       .get("/schools")
       .then(({ data }) => {
-        setState(
-          { ...state },
-          {
-            dataLoaded: true,
-            schoolData: data,
-          }
-        );
+        setState({
+          ...state,
+          dataLoaded: true,
+          schoolData: data,
+        });
         console.log(data);
       })
       .catch((err) => {

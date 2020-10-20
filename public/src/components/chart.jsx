@@ -3,7 +3,7 @@ import Row from "./Row.jsx";
 import styles from "../styles.css";
 
 function Chart({ schoolData, setPage }) {
-  const listItems = props.schoolData.map((school) => (
+  const listItems = schoolData.map((school) => (
     <li key={school._id} className={styles.flexContainer}>
       <Row
         data={school}
