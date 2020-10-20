@@ -19,7 +19,6 @@ const App = (props) => {
           dataLoaded: true,
           schoolData: data,
         });
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -31,24 +30,24 @@ const App = (props) => {
       return <div>Loading...</div>;
     } else if (page === "main") {
       return (
-        <div>
+        <>
           <div className={css.MainFlex}>
             <Header />
             <DropDown />
             <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <div className={css.MainFlex}>
             <Header className={css.header} />
             <DropDown />
             <Chart setPage={setPage} schoolData={state.schoolData} />
           </div>
           <Modal setPage={setPage} school={page} />
-        </div>
+        </>
       );
     }
   };

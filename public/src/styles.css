@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
+body:global {
   font-family: 'Libre Franklin', sans-serif;
   color: #333;
   font-size: 1rem;
@@ -20,15 +20,12 @@ body {
   margin: 10px 0 0 35px;
 }
 
-
-
 .headerSubtitle {
   justify-content: flex-start;
   border-bottom-style: dashed;
   border-color: #999;
   cursor: pointer;
 }
-
 
 .flexContainer {
   display: flex;
@@ -104,7 +101,7 @@ li {
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   text-overflow: 'ellipsis';
-  font-size:16px;
+  font-size: 16px;
 }
 
 .reviewText {
@@ -116,7 +113,7 @@ li {
 }
 
 .DDflex {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-content: space-around;
@@ -128,7 +125,7 @@ li {
   background-color: white;
   text-align: left;
   border-top-color: #fff;
-  box-shadow: 1px 1px 5px 0 rgba(0,0,0,.5);
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .5);
   max-width: 15%;
   margin: 20px;
   padding: 20px;
@@ -138,20 +135,20 @@ li {
 .Arrow {
   position: absolute;
   top: -15px;
-  width  : 0;
-  height : 0;
-  border-left-color: rgba(0,0,0,.5);
-  border-right-color:  rgba(0,0,0,.5);
-  border-left   : 13px solid transparent;
-  border-right  : 13px solid transparent;
-  border-bottom : 25px solid white;
+  width: 0;
+  height: 0;
+  border-left-color: rgba(0, 0, 0, .5);
+  border-right-color: rgba(0, 0, 0, .5);
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 25px solid white;
+}
+
+ul li {
+  list-style: none;
+  list-style-position: outside;
 }
 
 .pad {
   padding-top: 15px;
 }
-
-
-
-
-

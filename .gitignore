@@ -103,3 +103,7 @@ dist/app.bundle.js
 # TernJS port file
 .tern-port
 
+# Bundle
+public/dist/bundle.js
+public/dist/index.html
+
