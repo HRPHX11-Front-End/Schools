@@ -1,7 +1,5 @@
 # Read Me
 
-![](README.gif)
-
 > This micro-service is only part of a bigger Application built using service oriented architecture.
 
 ---
