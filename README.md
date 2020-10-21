@@ -22,6 +22,7 @@
 - Node.js
 - Express.js
 - MongoDB
+- Docker
 
 ---
 
@@ -31,12 +32,17 @@
 2. open your terminal in the root directory of project and run the following:
 
 ```html
-npm install
-npm run prod
+docker-compose up --build
 ```
 
 
-3. navigate to localhost:3000 and experience the magic!
+3. navigate to http://localhost/ and experience the magic!
+
+4. when done viewing dockerized micro-service, exit with (Ctrl) + C and enter the following in the terminal:
+
+```html
+docker-compose down
+```
 
 [Back To The Top](#read-me)
 
