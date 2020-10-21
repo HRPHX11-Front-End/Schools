@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const cors = require('cors');
-const db = require('../database/config.js');
+const db = require('./database');
 const morgan = require('morgan');
 
 const port = process.env.PORT || 3000;
@@ -23,5 +23,5 @@ app.use('/dist/bundle.js', expressStaticGzip(__dirname + '../public/dist', {
 app.use('/schools', require('./routes'));
 
 app.listen(port, () => {
-  console.log(`listening on port: ${port}`);
+   console.log(`listening on port: ${port}`);
 });

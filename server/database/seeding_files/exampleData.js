@@ -1,56 +1,69 @@
 const faker = require('faker');
 
-// function to generate 300 fake reviews and 100 fake houses with random data points
+const School = (gradesServed = null, schoolType = null, distance = null, network = null) => {
+  this.gradesServed = gradesServed;
+  this.schoolType = schoolType;
+  this.distance = distance;
+  this.network = network
+  this.academicProgress = faker.random.number({ min: 0, max: 10 });
+  this.lowIncome = faker.random.number({ min: 0, max: 10 });
+  this.equity = faker.random.number({ min: 0, max: 10 });
+  this.testScores = faker.random.number({ min: 0, max: 10 });
+}
+
+School.prototype.generateSchoolRecord = function () {
+  const gradesServed = ['Preschool to 6', 'Preschool to 8', 'K to 12', '6 to 12', '9 to 12'];
+  const schoolType = [' Elementary School', ' High School', ' Middle School', ' Academy'];
+  const distance = ['Nearby school', 'Serves this home'];
+  const network = ['Public', 'Private'];
+  this.gradesServed = getRandomElement(gradesServed);
+  this.schoolType = getRandomElement(schoolType);
+  this.distance = getRandomElement(distance);
+  this.network = getRandomElement(network);
+  return {
+    rating: [{
+      academicProgress: this.academicProgress,
+      lowIncome: this.lowIncome,
+      equity: this.equity,
+      testScores: this.testScores,
+      average: getAvg(this.academicProgress, this.lowIncome, this.equity, this.testScores),
+      lastUpdated: getDate(),
+    }],
+    name: faker.name.findName() + this.gradesServed,
+    district: faker.address.streetName() + ' School District',
+    studentBody: faker.random.number({ min: 500, max: 2500 }),
+    teacherBody: faker.random.number({ min: 100, max: 500 }),
+    studTeachRatio: getRatio(faker.random.number({ min: 100, max: 150 }), faker.random.number({ min: 20, max: 80 })),
+    distance: faker.random.number({ min: 0.1, max: 10 }),
+    address: [{
+      street: faker.random.number({ min: 1000, max: 9999 }) + ' ' + faker.address.streetName(),
+      city: faker.address.city(),
+      state: faker.address.stateAbbr(),
+      zip: faker.address.zipCode()
+    }],
+    details: [{
+      network: this.network,
+      grades: this.gradesServed,
+      nearByOrServes: this.distance
+    }],
+    reviews: reviews(),
+  }
+}
+
+const getRandomElement = (array) => {
+  const randomElement = Math.floor(Math.random() * array.length);
+  return array[randomElement];
+}
+
 module.exports.dataGenerator = () => {
   // create random arrs
-  var gradesArr = ['Preschool to 6', 'Preschool to 8', 'K to 12', '6 to 12', '9 to 12'];
-  var verbs = [' Elementary School', ' High School', ' Middle School', ' Academy'];
-  var distanceArr = ['Nearby school', 'Serves this home'];
-  var networkArr = ['Public', 'Private']
+
   // array to hold all school docs
   var schoolRecords = [];
 
   // 100 school data documents
   for (let i = 0; i < 100; i++) {
-    // randon idx for verbs
-    var vIdx = Math.floor(Math.random() * 4);
-    // randon idx for networkArr
-    var nIdx = Math.floor(Math.random() * 2);
-    // randon idx for gradesArr
-    var gIdx = Math.floor(Math.random() * 5);
-    // define values for ratings
-    var academicProgress = faker.random.number({ min: 0, max: 10 });
-    var lowIncome = faker.random.number({ min: 0, max: 10 });
-    var equity = faker.random.number({ min: 0, max: 10 });
-    var testScores = faker.random.number({ min: 0, max: 10 });
-    var schoolData = {
-      rating: [{
-        academicProgress: academicProgress,
-        lowIncome: lowIncome,
-        equity: equity,
-        testScores: testScores,
-        average: getAvg(academicProgress, lowIncome, equity, testScores),
-        lastUpdated: getDate(),
-      }],
-      name: faker.name.findName() + verbs[vIdx],
-      district: faker.address.streetName() + ' School District',
-      studentBody: faker.random.number({ min: 500, max: 2500 }),
-      teacherBody: faker.random.number({ min: 100, max: 500 }),
-      studTeachRatio: getRatio(faker.random.number({ min: 100, max: 150 }), faker.random.number({ min: 20, max: 80 })),
-      distance: faker.random.number({ min: 0.1, max: 10 }),
-      address: [{
-        street: faker.random.number({ min: 1000, max: 9999 }) + ' ' + faker.address.streetName(),
-        city: faker.address.city(),
-        state: faker.address.stateAbbr(),
-        zip: faker.address.zipCode()
-      }],
-      details: [{
-        network: networkArr[nIdx],
-        grades: gradesArr[gIdx],
-        nearByOrServes: distanceArr[nIdx]
-      }],
-      reviews: reviews(),
-    }
+
     schoolRecords.push(schoolData);
   }
 
