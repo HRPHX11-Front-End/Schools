@@ -9,7 +9,7 @@ seeder.connect('mongodb://mongo:27017/schools_db', { useUnifiedTopology: true, u
     path.join(__dirname, '..', 'models', 'schools.js'),
   ])
   seeder.clearModels(['School'], function () {
-    var data = helperFunctions.dataGenerator();
+    const data = helperFunctions.dataGenerator();
     seeder.populateModels(data, function () {
       seeder.disconnect();
     });
