@@ -1,3 +1,4 @@
+
 const faker = require('faker');
 
 // function to generate 300 fake reviews and 100 fake houses with random data points
@@ -130,4 +131,3 @@ const reviewGenerator = () => {
   })
   return review.join('');
 }
-

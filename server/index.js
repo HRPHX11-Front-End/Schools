@@ -2,10 +2,10 @@ const expressStaticGzip = require('express-static-gzip');
 const express = require('express');
 const path = require('path');
 const app = express();
+const db = require('./database');
 const cors = require('cors');
-const db = require('../database/config.js');
 const morgan = require('morgan');
-
+const routes = require('./routes');
 const port = process.env.PORT || 3000;
 
 app.use(cors());
@@ -20,8 +20,8 @@ app.use('/dist/bundle.js', expressStaticGzip(__dirname + '../public/dist', {
    },
 }));
 
-app.use('/schools', require('./routes'));
+app.use('/schools', routes);
 
 app.listen(port, () => {
-  console.log(`listening on port: ${port}`);
+   console.log(`listening on port: ${port}`);
 });

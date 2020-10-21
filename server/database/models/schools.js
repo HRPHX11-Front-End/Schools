@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// define schema
 const Schema = mongoose.Schema;
 
 const reviewSchema = mongoose.Schema({
