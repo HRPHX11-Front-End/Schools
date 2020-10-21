@@ -5,6 +5,7 @@ const SRC_DIR = path.join(__dirname, 'public', 'src');
 const DIST_DIR = path.join(__dirname, 'public', 'dist');
 const CompressionPlugin = require('compression-webpack-plugin');
 const BrotliPlugin = require('brotli-webpack-plugin');
+const zlib = require('zlib');
 
 module.exports = merge(common, {
   mode: 'production',

@@ -1,6 +1,5 @@
 {
     "eslint.validate": [
-    "vue",
     "html",
     "javascript",
     "typescript",
