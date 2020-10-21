@@ -16,7 +16,7 @@
     "prod": "npm-run-all -s seed prod:*",
     "prod:server": "nodemon sever/index.js",
     "prod:build": "webpack --config webpack.prod.js",
-    "seed": "node database/seeding_files/seed.js"
+    "seed": "node server/database/seeding_files/seed.js"
   },
   "repository": {
     "type": "git",

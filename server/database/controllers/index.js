@@ -1,3 +1,5 @@
+const School = require('../models/schools.js');
+
 exports.generateFiveSchools = (req, res) => {
   School.aggregate([{ $sample: { size: 5 } }]).exec()
     .then(results => {
@@ -7,4 +9,4 @@ exports.generateFiveSchools = (req, res) => {
       console.log(err);
       res.sendStatus(500);
     })
-}
+};
