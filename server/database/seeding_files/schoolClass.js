@@ -56,11 +56,6 @@ School.prototype.generateOneHunderedRecords = function () {
   })
 }
 
-const getRandomElement = (array) => {
-  const randomElement = Math.floor(Math.random() * array.length);
-  return array[randomElement];
-}
-
 var data = [{
   'model': 'School',
   'documents': School.prototype.generateOneHunderedRecords()

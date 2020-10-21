@@ -1,6 +1,6 @@
 
-const random = Math.floor(Math.random() * 10 + 1);
-const Review = (comment = null, date = null, rating= null) => {
+
+const Review = (comment, rating, date) => {
   this.rating = rating
   this.comment = comment;
   this.submitter = 'Parent';
