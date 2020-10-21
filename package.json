@@ -16,7 +16,7 @@
     "prod": "npm-run-all --parallel seed prod:*",
     "prod:server": "nodemon sever/index.js",
     "prod:build": "webpack --config webpack.prod.js",
-    "seed": "node seed.js"
+    "seed": "node database/seeding_files/seed.js"
   },
   "repository": {
     "type": "git",
@@ -41,7 +41,6 @@
     "babel-loader": "^8.1.0",
     "babel-preset-airbnb": "^5.0.0",
     "babel-preset-env": "^1.7.0",
-    "brotli-gzip-webpack-plugin": "^0.5.0",
     "brotli-webpack-plugin": "^1.1.0",
     "compression-webpack-plugin": "^5.0.1",
     "css-loader": "^4.2.1",
@@ -60,6 +59,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -73,6 +73,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "zlib": "^1.0.5"
   }
 }
