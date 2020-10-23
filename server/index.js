@@ -12,7 +12,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '..', 'public', 'dist')));
 
-app.use('/dist/bundle.js', expressStaticGzip(__dirname + '../public/dist', {
+app.use('public/dist/bundle.js', expressStaticGzip(__dirname + '../public/dist', {
    enableBrotli: true,
    orderPreference: ['br', 'gz'],
    setHeaders: function (res, path) {
