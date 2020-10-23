@@ -107,3 +107,5 @@ dist/app.bundle.js
 public/dist/bundle*
 public/dist/index.html
 
+#DS Store
+.DS_Store

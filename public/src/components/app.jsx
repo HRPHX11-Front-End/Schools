@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header.jsx";
-import DropDown from "./Dropdown.jsx";
+import DropDown from "./DropDown.jsx";
 import Chart from "./Chart.jsx";
 import Modal from "../modal/Modal.jsx";
 import css from "../styles.css";
