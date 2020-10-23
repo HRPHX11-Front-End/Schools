@@ -9,6 +9,7 @@ const zlib = require('zlib');
 
 module.exports = merge(common, {
   mode: 'production',
+  devtool: 'source-map',
   entry: {
     app: `${SRC_DIR}/index.jsx`
   },
