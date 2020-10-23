@@ -27,7 +27,7 @@ const StarBar = (props) => {
         <FaStar
           key={index}
           size={20}
-          color={i + 1 <= state ? "#fad700" : "#c2c2c2"}
+          color={index + 1 <= state ? "#fad700" : "#c2c2c2"}
         />
       ))}
     </div>
