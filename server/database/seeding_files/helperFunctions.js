@@ -9,11 +9,11 @@ module.exports.dataGenerator = () => {
   const networkArr = ['Public', 'Private']
   let schoolRecords = [];
   for (let i = 0; i < 100; i++) {
-    var academicProgress = faker.random.number({ min: 0, max: 10 });
-    var lowIncome = faker.random.number({ min: 0, max: 10 });
-    var equity = faker.random.number({ min: 0, max: 10 });
-    var testScores = faker.random.number({ min: 0, max: 10 });
-    var schoolData = {
+    const academicProgress = faker.random.number({ min: 0, max: 10 });
+    const lowIncome = faker.random.number({ min: 0, max: 10 });
+    const equity = faker.random.number({ min: 0, max: 10 });
+    const testScores = faker.random.number({ min: 0, max: 10 });
+    const schoolData = {
       rating: [{
         academicProgress: academicProgress,
         lowIncome: lowIncome,
