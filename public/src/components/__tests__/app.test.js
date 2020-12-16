@@ -19,9 +19,7 @@ describe('<App />', () => {
 
 
 describe('<App />', () => {
-
   let wrapper;
-
   beforeEach(() => {
     wrapper = shallow(<App />, { disableLifecycleMethods: true });
     // spyDidMount = jest.spyOn(App.prototype, "componentDidMount");
