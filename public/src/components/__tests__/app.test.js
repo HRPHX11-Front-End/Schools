@@ -9,7 +9,7 @@ import sinon from 'sinon';
 import moxios from 'moxios';
 
 configure({ adapter: new Adapter() });
-
+// unit tests for App
 describe('<App />', () => {
   test('should show "Loading..." when redered', () => {
     const wrapper = render(<App />)
